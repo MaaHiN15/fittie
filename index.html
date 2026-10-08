@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <title>Project 78</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -44,6 +46,7 @@ a{color:inherit}
 .nav a{white-space:nowrap;text-decoration:none;font-weight:700;font-size:14px;padding:6px 12px;border:2px solid var(--line);border-radius:999px;background:var(--surface);transition:transform .15s}
 .nav a:hover{transform:translateY(-2px);background:var(--turmeric);color:var(--on-accent)}
 
+section,[id]{scroll-margin-top:72px}
 section{padding-block:clamp(40px,6vw,80px)}
 .sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 32px;margin-bottom:28px}
 .sec-head p{max-width:60ch;color:var(--ink-soft)}
@@ -250,6 +253,63 @@ section{padding-block:clamp(40px,6vw,80px)}
 .reset{font:inherit;font-weight:700;font-size:13px;background:none;border:2px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink);cursor:pointer}
 .track-how{display:grid;gap:8px;font-size:14.5px}
 
+/* view switch */
+.views{display:inline-flex;border:2px solid var(--line);border-radius:999px;overflow:hidden;flex:none;margin-right:6px}
+.nav .views a{border:0;border-radius:0;padding:6px 14px;background:var(--surface)}
+.nav .views a+a{border-left:2px solid var(--line)}
+.nav .views a.active{background:var(--ink);color:var(--bg)}
+.nav .views a.active:hover{transform:none}
+body.log-on .nav .wrap>a{display:none}
+
+/* log */
+.log-head{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(20px,3vw,40px);align-items:end;padding-block:clamp(28px,4vw,48px) 24px}
+.log-head h1{font-size:clamp(44px,6vw,88px)}
+.log-head .lede{font-size:17px;max-width:60ch;margin-top:12px}
+.wkstrip{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.ws{border:2.5px solid var(--line);border-radius:12px;padding:8px 10px;background:var(--surface);display:grid;gap:2px;min-height:76px;align-content:start}
+.ws .d{font-family:var(--f-mono);font-size:11.5px;font-weight:700;color:var(--ink-soft)}
+.ws .n{font-weight:800;font-size:13.5px;line-height:1.2}
+.ws.gym{background:var(--tomato);color:var(--on-accent)} .ws.gym .d{color:var(--on-accent)}
+.ws.rest{background:var(--surface-2)}
+.ws.setup{background:var(--sky);color:var(--on-accent)} .ws.setup .d{color:var(--on-accent)}
+.ws.empty{border-style:dashed;background:transparent}
+.ws.today{outline:3px solid var(--turmeric);outline-offset:2px}
+
+.log-grid{display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:start;padding-bottom:clamp(40px,6vw,80px)}
+.log-side{display:grid;gap:18px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px)}
+.avg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.avg div{display:grid;gap:2px}
+.avg .v{font-family:var(--f-display);font-size:30px;line-height:1}
+.avg .k{font-size:13px;font-weight:700;color:var(--ink-soft)}
+.side-list{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14.5px}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+.dcard{display:grid;gap:12px;align-content:start}
+.dtop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.dtop .date{font-family:var(--f-mono);font-size:13px;font-weight:700;color:var(--ink-soft)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tg{font-size:12.5px;font-weight:800;border:2px solid var(--line);border-radius:999px;padding:2px 9px}
+.tg.gym{background:var(--tomato);color:var(--on-accent)}
+.tg.fb{background:var(--leaf);color:var(--on-accent)}
+.tg.rest{background:var(--surface-2)}
+.tg.setup{background:var(--sky);color:var(--on-accent)}
+.dwork{font-size:14px;background:var(--surface-2);border-radius:10px;padding:8px 10px;display:grid;gap:2px}
+.items{list-style:none;margin:0;padding:0}
+.items li{display:grid;grid-template-columns:1fr auto auto;gap:10px;padding:6px 0;border-bottom:1.5px dashed color-mix(in srgb,var(--ink) 22%,transparent);font-size:14px;line-height:1.3;align-items:baseline}
+.items li:last-child{border-bottom:0}
+.items .q{color:var(--ink-soft);font-size:12.5px}
+.items .num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:12.5px;font-weight:700;text-align:right;min-width:52px}
+.items .est .num::before{content:"≈"}
+.items .unk{color:var(--ink-soft);font-style:italic}
+.meters{display:grid;gap:8px}
+.meter{display:grid;grid-template-columns:62px 1fr 92px;gap:8px;align-items:center;font-size:13px;font-weight:700}
+.meter .trk{height:14px;border:2px solid var(--line);border-radius:999px;background:var(--surface-2);overflow:hidden}
+.meter .fill{height:100%}
+.meter .val{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;font-size:12.5px}
+.coach{font-size:14px;border-left:4px solid var(--turmeric);padding-left:10px}
+.howto{font-family:var(--f-mono);font-size:12.5px;background:var(--surface-2);border-radius:10px;padding:10px 12px;white-space:pre-wrap;line-height:1.5}
+@media (max-width:1100px){.log-grid{grid-template-columns:1fr}.log-side{position:static}.log-head{grid-template-columns:1fr}}
+@media (max-width:560px){.wkstrip{grid-template-columns:repeat(4,1fr)}}
+
 footer{border-top:2.5px solid var(--line);padding-block:28px 40px;font-size:13.5px;color:var(--ink-soft)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
 
@@ -314,6 +374,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
 <nav class="nav" aria-label="Sections">
   <div class="wrap">
     <span class="logo">PROJECT <b>78</b></span>
+    <span class="views" role="group" aria-label="View">
+      <a href="#plan" class="view-link" data-view="plan">Plan</a>
+      <a href="#log" class="view-link" data-view="log">Log</a>
+    </span>
     <a href="#day">My day</a>
     <a href="#train">Workouts</a>
     <a href="#pullup">Pull-up quest</a>
@@ -324,6 +388,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
   </div>
 </nav>
 
+<div id="plan">
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -402,7 +467,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
       <div class="tgt"><span class="k">Protein</span><span class="v mono">150<small>g</small></span><span class="d">About 1.8 g per kg. Eggs, chicken, fish, paneer, curd, whey.</span></div>
       <div class="tgt"><span class="k">Water</span><span class="v mono">3.5<small>L</small></span><span class="d">You drink 1 L now. Add 500 ml per gym hour.</span></div>
       <div class="tgt"><span class="k">Steps</span><span class="v mono">9,000</span><span class="d">Gym covers ~3k. Walk during calls and after dinner.</span></div>
-      <div class="tgt"><span class="k">Sleep</span><span class="v mono">7.5<small>h</small></span><span class="d">1:30 AM to 9:00–9:30 AM. Fat loss stalls on bad sleep.</span></div>
+      <div class="tgt"><span class="k">Sleep</span><span class="v mono">7.5<small>h</small></span><span class="d">1:15 AM to 9:00 AM. Fat loss stalls on bad sleep.</span></div>
       <div class="tgt"><span class="k">Gym days</span><span class="v mono">4–5</span><span class="d">3 still counts as a win. Fewer than 2 is the only fail.</span></div>
     </div>
     <div class="macro sticker" style="margin-top:20px">
@@ -420,22 +485,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
 <section id="day" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">New shift routine</p><h2>Your day, 9:30 AM to 1:30 AM</h2></div>
-      <p>The rule is to train first and eat your biggest meals before the shift ends. Your old pattern was 3 naans at midnight. Now the midnight meal is small and high in protein.</p>
+      <div><p class="eyebrow">New shift routine · updated from week 1</p><h2>Your day, 9 AM to 1:15 AM</h2></div>
+      <p>This is the routine you actually ran in week 1, with two changes: drink more water, and have more protein at the evening meal. Biggest meals still go before the shift ends.</p>
     </div>
     <div class="day" tabindex="0" aria-label="Daily timeline, scroll sideways on small screens">
       <div class="day-track">
-        <div class="slot"><span class="t">9:30</span><span class="w">Wake up</span><span class="x">500 ml water. 5 g creatine. Open curtains, get some light.</span></div>
-        <div class="slot eat"><span class="t">10:00</span><span class="w">Pre-gym bite</span><span class="x">1 banana + black coffee or low-sugar tea.</span></div>
-        <div class="slot gym"><span class="t">10:15</span><span class="w">GYM 60–75 min</span><span class="x">Warm-up, lifting, then cardio finisher. Phone on airplane mode.</span></div>
-        <div class="slot eat"><span class="t">11:40</span><span class="w">Whey shake</span><span class="x">1 scoop (31 g, about 24 g protein) in water or milk.</span></div>
-        <div class="slot eat"><span class="t">12:30</span><span class="w">Brunch, big meal 1</span><span class="x">South Indian + eggs. Vitamin D with this meal.</span></div>
-        <div class="slot work"><span class="t">2:15</span><span class="w">Leave for office</span><span class="x">Pack the dinner box and a 1.5 L bottle.</span></div>
+        <div class="slot"><span class="t">9:00</span><span class="w">Wake up</span><span class="x">Low-sugar tea (keep it), 500 ml water, 5 g creatine.</span></div>
+        <div class="slot eat"><span class="t">10:15</span><span class="w">Pre-gym bite</span><span class="x">1 banana. You're already doing this.</span></div>
+        <div class="slot gym"><span class="t">10:30</span><span class="w">GYM 75–90 min</span><span class="x">Warm-up, lifting, then finisher. You're already at ~75 min inside a 10:30–12:30 window.</span></div>
+        <div class="slot eat"><span class="t">12:00</span><span class="w">Whey shake</span><span class="x">1 scoop (31 g, about 24 g protein) in water.</span></div>
+        <div class="slot eat"><span class="t">12:30</span><span class="w">Brunch, big meal 1</span><span class="x">Dosa or chapati + 3 eggs + chicken box. Vitamin D with this meal.</span></div>
+        <div class="slot work"><span class="t">2:30</span><span class="w">Leave for office</span><span class="x">Pack 3 boiled eggs or a chicken box, plus a 1.5 L bottle.</span></div>
         <div class="slot work"><span class="t">5:00</span><span class="w">Tea break</span><span class="x">Low-sugar tea + fruit or roasted chana. No biscuits.</span></div>
         <div class="slot eat"><span class="t">7:30</span><span class="w">Meal 2 at office</span><span class="x">Your main dinner. Rice or chapati + protein + veg.</span></div>
         <div class="slot work"><span class="t">11:00</span><span class="w">Shift ends</span><span class="x">Walk home or walk 10 min after reaching.</span></div>
-        <div class="slot eat"><span class="t">11:45</span><span class="w">Small meal 3</span><span class="x">Greek yogurt or 3-egg omelette. No naan or rice now.</span></div>
-        <div class="slot zz"><span class="t">1:30</span><span class="w">Sleep</span><span class="x">Screens dim from 1:00. Room cool and dark. Same time on weekends ±1 h.</span></div>
+        <div class="slot eat"><span class="t">11:30</span><span class="w">Small meal 3</span><span class="x">Greek yogurt or 3-egg omelette. Keep it high-protein, no naan or rice.</span></div>
+        <div class="slot zz"><span class="t">1:15</span><span class="w">Sleep</span><span class="x">Screens dim from 12:45. Room cool and dark. Same time on weekends ±1 h.</span></div>
       </div>
     </div>
     <div class="legend">
@@ -465,9 +530,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
     <div id="p-green" role="tabpanel" aria-labelledby="tab-green">
       <div class="week">
         <div class="wd on"><span class="d">MON</span><span class="n">Push</span></div>
-        <div class="wd on"><span class="d">TUE</span><span class="n">Pull</span></div>
-        <div class="wd on"><span class="d">WED</span><span class="n">Legs + core</span></div>
-        <div class="wd rest"><span class="d">THU</span><span class="n">Rest · walk</span></div>
+        <div class="wd on"><span class="d">TUE</span><span class="n">Pull · football night</span></div>
+        <div class="wd rest"><span class="d">WED</span><span class="n">Rest · walk</span></div>
+        <div class="wd on"><span class="d">THU</span><span class="n">Legs + core</span></div>
         <div class="wd on"><span class="d">FRI</span><span class="n">Upper</span></div>
         <div class="wd on"><span class="d">SAT</span><span class="n">Lower + engine</span></div>
         <div class="wd rest"><span class="d">SUN</span><span class="n">Rest · meal prep</span></div>
@@ -533,7 +598,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
             <li><span>Hanging knee raise</span><span>3 × 10</span></li>
             <li><span>Cable crunch</span><span>3 × 12</span></li>
           </ul>
-          <p class="fin"><b>Engine:</b> bike sprints, 8 rounds of 20 s all-out + 40 s easy. This is your stamina builder.</p>
+          <p class="fin"><b>Engine:</b> bike sprints, 8 rounds of 20 s all-out + 40 s easy. If you played football that week, skip the sprints. Football is your engine.</p>
         </article>
       </div>
     </div>
@@ -721,7 +786,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
         <span class="kc">~650 kcal · 35–40 g protein</span>
         <ul>
           <li>3 idly + sambar + 3-egg omelette</li>
-          <li>1 plain dosa + 3 boiled eggs + sambar</li>
+          <li>2 dosa + 3 eggs + 150 g chicken (your Monday combo, ~45 g protein)</li>
           <li>3 idiyappam + egg curry</li>
           <li>Home: 4-egg bhurji + 2 chapati + cucumber</li>
         </ul>
@@ -870,7 +935,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
       <div class="sticker if"><span class="q">Sore everywhere (week 1)</span><p>Still go. Warm up, go light, do some cardio. Soreness fades by the 3rd session, and stopping makes it come back.</p></div>
       <div class="sticker if"><span class="q">Scale stuck 2 weeks</span><p>Check your waist first, since you may be building muscle. If the waist is stuck too, cut 50 g rice a day or add 2,000 steps.</p></div>
       <div class="sticker if"><span class="q">Motivation drops 10 → 4</span><p>It will, probably around week 5. Keep the session and shrink it to 30 min. Never miss twice in a row.</p></div>
-      <div class="sticker if"><span class="q">Shift changes again</span><p>Keep the order: wake up, train, then the big meal. Move the whole block to fit the new hours.</p></div>
+      <div class="sticker if"><span class="q">Football night</span><p>An intense hour counts as your engine session and burns about 600–700 kcal. Eat a full dinner that day. The next day is rest, and you continue the plan in order after that.</p></div>
       <div class="sticker if"><span class="q">UAE heat, sweating a lot</span><p>Add 500 ml water per gym hour and a pinch of salt or an electrolyte sachet. Dark urine means drink more.</p></div>
       <div class="sticker if"><span class="q">January: back to India</span><p>Plan this now. Use home dumbbells or a local gym with the busy-week plan. Eggs, curd, paneer, chicken and sundal travel well.</p></div>
     </div>
@@ -882,7 +947,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">12 weeks · Oct 5 → Dec 26, 2026</p><h2>The roadmap</h2></div>
-      <p>Setup days are Oct 1–4: blood test, buy creatine, Lulu run, first Sunday prep, plus a "before" photo and waist measurement.</p>
+      <p>The routine started on Sunday, Oct 4. If you haven't done these yet, do them this week: the blood test, buying creatine, a "before" photo and a waist measurement.</p>
     </div>
     <div class="road">
       <div class="ph"><span class="w">WK 1–2 · OCT 5–18</span><span class="nm">Re-entry</span><p>4 days a week. Weights at 70%, 2–3 sets each. Learn the deadlift form. Fix your sleep. Water to 3 L.</p></div>
@@ -931,6 +996,62 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
     </div>
   </div>
 </section>
+</div>
+
+<div id="log" hidden>
+  <div class="wrap log-head">
+    <div>
+      <p class="eyebrow">Daily log · week 1 · Oct 4–10, 2026</p>
+      <h1>What you actually did</h1>
+      <p class="lede">Every day you tell me, logged with estimated calories and protein. Amounts marked ≈ are my guesses. Send me exact counts and I'll correct them.</p>
+    </div>
+    <div class="wkstrip" id="wkstrip" aria-label="Week 1 at a glance"></div>
+  </div>
+  <div class="wrap log-grid">
+    <aside class="log-side">
+      <div class="sticker">
+        <p class="eyebrow" id="avg-label">Average per full day</p>
+        <div class="avg" style="margin-top:10px">
+          <div><span class="v mono" id="avg-k">0</span><span class="k">kcal · target 2,150</span></div>
+          <div><span class="v mono" id="avg-p">0</span><span class="k">g protein · target 150</span></div>
+          <div><span class="v mono" id="cnt-gym">0</span><span class="k">gym sessions</span></div>
+          <div><span class="v mono" id="cnt-fb">0</span><span class="k">football sessions</span></div>
+        </div>
+      </div>
+      <div class="sticker" style="background:color-mix(in srgb,var(--leaf) 16%,var(--surface))">
+        <h3>Going well</h3>
+        <ul class="side-list" style="margin-top:8px">
+          <li>3 training sessions in the first 3 days</li>
+          <li>Zero junk, oily or creamy food</li>
+          <li>Banana before the gym and whey after it, every time, plus a 2nd scoop after football</li>
+          <li>Gym sessions at ~75 min, right in the target range</li>
+          <li>Buttermilk with dinner instead of soft drinks</li>
+          <li>Rest day after football. That was the right call.</li>
+        </ul>
+      </div>
+      <div class="sticker" style="background:color-mix(in srgb,var(--tomato) 13%,var(--surface))">
+        <h3>Fix next</h3>
+        <ul class="side-list" style="margin-top:8px">
+          <li><b>Water is 1 L a day. Target is 3.5 L.</b> This is the biggest gap. Add 500 ml each week: 1.5 L this week, then 2 L, and so on.</li>
+          <li><b>Dinner is low on protein.</b> A big paneer paratha gives ~15 g, dal khichdi ~15 g. Add 3 boiled eggs from home, or order tandoori chicken + 2 roti.</li>
+          <li><b>Start the 11:30 PM small meal.</b> 200 g Greek yogurt adds ~20 g protein at ~150 kcal and stops late shawarma cravings.</li>
+          <li><b>Follow the plan days.</b> From week 2, do Push / Pull / Legs instead of mixed sessions. Mixed was fine for re-entry.</li>
+        </ul>
+      </div>
+      <div class="sticker">
+        <h3>Send me a day like this</h3>
+        <div class="howto" style="margin-top:8px">Thu Oct 8
+Wake 9:00 · sleep 1:15
+Gym: Push, 80 min (or rest / football)
+Brunch: 2 dosa + 3 eggs + chutney
+Dinner: 3 roti + chicken tikka
+Late: 200 g curd
+Water: 2.5 L · Steps: 7k</div>
+      </div>
+    </aside>
+    <div class="days" id="days"></div>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
@@ -940,6 +1061,123 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
 </footer>
 
 <script>
+/* DAILY LOG — add one object per day. k = kcal, p = protein (g), est = amount guessed. */
+var TARGET={k:2150,p:150};
+var LOG=[
+  {date:'2026-10-04',label:'Day 0 · setup',type:['setup'],partial:true,
+   work:'Routine starts. Cooked chicken at home in the evening.',
+   items:[{n:'Home-cooked chicken',q:'dinner · 200 g',k:360,p:55,est:true},
+          {n:'Rest of the day',q:'not reported',unk:true}],
+   coach:'Partial day (only dinner reported), so it’s left out of the averages.'},
+  {date:'2026-10-05',label:'Day 1',type:['gym'],water:1,
+   work:'Gym ~75 min · mixed arms, back, shoulder, chest · 8 min run at 8 km/h',
+   items:[{n:'Low-sugar tea',q:'morning',k:45,p:2},
+          {n:'Banana',q:'pre-gym',k:105,p:1},
+          {n:'Whey shake',q:'1 scoop, water',k:120,p:24},
+          {n:'Big dosa',q:'2',k:380,p:9,est:true},
+          {n:'Eggs on the dosas',q:'3',k:255,p:19},
+          {n:'Chutney',q:'2 tbsp',k:80,p:1,est:true},
+          {n:'Home chicken',q:'200 g',k:360,p:55},
+          {n:'Low-sugar tea',q:'evening',k:45,p:2},
+          {n:'Dal khichdi',q:'restaurant plate',k:450,p:15,est:true},
+          {n:'Buttermilk',q:'1 glass',k:60,p:3}],
+   coach:'Best day so far. Chicken plus egg dosa got protein to ~131 g. You were about 250 kcal under target on a gym day, which is fine for fat loss. Don’t go lower than this.'},
+  {date:'2026-10-06',label:'Day 2',type:['gym','fb'],water:1,
+   work:'Gym ~75 min · mixed upper + 8 min run · football 60 min at night, intense',
+   items:[{n:'Low-sugar tea',q:'morning',k:45,p:2},
+          {n:'Banana',q:'pre-gym',k:105,p:1},
+          {n:'Whey shake',q:'after gym',k:120,p:24},
+          {n:'Big dosa',q:'2',k:380,p:9,est:true},
+          {n:'Eggs on the dosas',q:'3',k:255,p:19},
+          {n:'Chutney',q:'2 tbsp',k:80,p:1,est:true},
+          {n:'Low-sugar tea',q:'evening',k:45,p:2},
+          {n:'Paneer paratha',q:'1 big',k:450,p:15,est:true},
+          {n:'Buttermilk',q:'1 glass',k:60,p:3},
+          {n:'Whey shake',q:'after football',k:120,p:24}],
+   coach:'The 2nd scoop after football was a good move. Still, gym + football burned about 1,000 kcal and you ate only ~1,660. On football days, add a chicken box or 200 g curd.'},
+  {date:'2026-10-07',label:'Day 3',type:['rest'],water:1,
+   work:'Rest day after football.',
+   items:[{n:'Low-sugar tea',q:'morning',k:45,p:2},
+          {n:'Chapati',q:'3',k:300,p:9},
+          {n:'Eggs',q:'3',k:255,p:19},
+          {n:'Chutney',q:'2 tbsp',k:80,p:1,est:true},
+          {n:'Low-sugar tea',q:'evening',k:45,p:2},
+          {n:'Paneer paratha',q:'1 big',k:450,p:15,est:true},
+          {n:'Buttermilk',q:'1 glass',k:60,p:3},
+          {n:'Juice, no added sugar',q:'2 glasses',k:240,p:2,est:true},
+          {n:'Shawarma',q:'small · late, outside',k:380,p:20,est:true}],
+   coach:'Calories fine for a rest day. Protein was the lowest of the week (~73 g) because there was no chicken or eggs at dinner. Juice without added sugar still has about 120 kcal of fruit sugar a glass. Fine once in a while.'}
+];
+
+(function(){
+  var DN=['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  var MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function d(s){var a=s.split('-');return new Date(+a[0],+a[1]-1,+a[2]);}
+  function key(dt){return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');}
+  function fmt(n){return Math.round(n).toLocaleString('en-US');}
+  function tot(day){var k=0,p=0;day.items.forEach(function(i){if(!i.unk){k+=i.k;p+=i.p;}});return {k:k,p:p};}
+  var TAGS={gym:'Gym',fb:'Football',rest:'Rest',setup:'Setup'};
+  var byDate={};LOG.forEach(function(x){byDate[x.date]=x;});
+
+  // week strip: Sun Oct 4 → Sat Oct 10
+  var todayKey=key(new Date());
+  var start=d('2026-10-04'),strip='';
+  for(var i=0;i<7;i++){
+    var dt=new Date(start);dt.setDate(start.getDate()+i);
+    var k=key(dt),e=byDate[k],cls='empty',txt='Not logged';
+    if(e){cls=e.type[0];txt=e.type.map(function(t){return TAGS[t];}).join(' + ');}
+    strip+='<div class="ws '+cls+(k===todayKey?' today':'')+'"><span class="d">'+DN[dt.getDay()]+' '+dt.getDate()+'</span><span class="n">'+txt+'</span></div>';
+  }
+  document.getElementById('wkstrip').innerHTML=strip;
+
+  // averages over full days only
+  var full=LOG.filter(function(x){return !x.partial;}),sk=0,sp=0;
+  full.forEach(function(x){var t=tot(x);sk+=t.k;sp+=t.p;});
+  document.getElementById('avg-label').textContent='Average per full day ('+full.length+' days)';
+  document.getElementById('avg-k').textContent=full.length?fmt(sk/full.length):'0';
+  document.getElementById('avg-p').textContent=full.length?fmt(sp/full.length):'0';
+  document.getElementById('cnt-gym').textContent=LOG.filter(function(x){return x.type.indexOf('gym')>-1;}).length;
+  document.getElementById('cnt-fb').textContent=LOG.filter(function(x){return x.type.indexOf('fb')>-1;}).length;
+
+  function meter(lbl,v,t,unit,color){
+    var pct=Math.min(100,v/t*100);
+    return '<div class="meter"><span>'+lbl+'</span><span class="trk"><span class="fill" style="display:block;width:'+pct+'%;background:'+color+'"></span></span><span class="val">'+fmt(v)+' / '+fmt(t)+unit+'</span></div>';
+  }
+  var html='';
+  LOG.slice().reverse().forEach(function(x){
+    var dt=d(x.date),t=tot(x);
+    var kc=t.k>TARGET.k*1.1?'var(--tomato)':'var(--turmeric)';
+    var pc=t.p>=TARGET.p*0.9?'var(--leaf)':'var(--sky)';
+    html+='<article class="sticker dcard">'+
+      '<div class="dtop"><h3>'+x.label+'</h3><span class="date">'+DN[dt.getDay()]+' · '+MN[dt.getMonth()]+' '+dt.getDate()+'</span></div>'+
+      '<div class="tags">'+x.type.map(function(tp){return '<span class="tg '+tp+'">'+TAGS[tp]+'</span>';}).join('')+'</div>'+
+      '<div class="dwork">'+x.work+'</div>'+
+      '<ul class="items">'+x.items.map(function(i){
+        if(i.unk) return '<li><span class="unk">'+i.n+' <span class="q">· '+i.q+'</span></span><span class="num">?</span><span class="num">?</span></li>';
+        return '<li class="'+(i.est?'est':'')+'"><span>'+i.n+' <span class="q">· '+i.q+'</span></span><span class="num">'+i.k+' kcal</span><span class="num">'+i.p+' g</span></li>';
+      }).join('')+'</ul>'+
+      '<div class="meters">'+meter('Calories',t.k,TARGET.k,'',kc)+meter('Protein',t.p,TARGET.p,' g',pc)+
+        (x.water!=null?'<div class="meter"><span>Water</span><span class="trk"><span class="fill" style="display:block;width:'+Math.min(100,x.water/3.5*100)+'%;background:var(--sky)"></span></span><span class="val">'+x.water+' / 3.5 L</span></div>':'')+'</div>'+
+      '<p class="coach">'+x.coach+'</p>'+
+    '</article>';
+  });
+  document.getElementById('days').innerHTML=html;
+
+  // plan / log view switch
+  var planV=document.getElementById('plan'),logV=document.getElementById('log');
+  var links=document.querySelectorAll('.view-link');
+  function route(){
+    var h=location.hash.slice(1),isLog=h==='log';
+    planV.hidden=isLog;logV.hidden=!isLog;
+    document.body.classList.toggle('log-on',isLog);
+    links.forEach(function(a){a.classList.toggle('active',a.dataset.view===(isLog?'log':'plan'));});
+    if(isLog){window.scrollTo(0,0);}
+    else if(h&&h!=='plan'){var el=document.getElementById(h);if(el)el.scrollIntoView();}
+    else if(h==='plan'){window.scrollTo(0,0);}
+  }
+  window.addEventListener('hashchange',route);route();
+})();
+
 (function(){
   var tabs=document.querySelectorAll('.tab');
   tabs.forEach(function(t){
