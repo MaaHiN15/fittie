@@ -253,6 +253,33 @@ section{padding-block:clamp(40px,6vw,80px)}
 .reset{font:inherit;font-weight:700;font-size:13px;background:none;border:2px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink);cursor:pointer}
 .track-how{display:grid;gap:8px;font-size:14.5px}
 
+/* exercise menu */
+#menu{background:var(--bg)}
+.xm-grid{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+.xm-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.xm-col{display:grid;gap:10px;align-content:start}
+.xm-col h3{display:flex;align-items:center;gap:8px;font-size:18px}
+.xm-col .rule-l{font-family:var(--f-mono);font-size:12px;font-weight:700;color:var(--ink-soft)}
+.xm-badge{font-family:var(--f-mono);font-size:12px;border:2px solid var(--line);border-radius:7px;padding:1px 7px;color:var(--on-accent)}
+.xm-items{display:flex;flex-wrap:wrap;gap:8px}
+.xm-it{font:inherit;font-size:14px;font-weight:600;text-align:left;cursor:pointer;border:2px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--surface);color:var(--ink);transition:transform .12s,background .12s}
+.xm-it:hover{transform:translateY(-2px)}
+.xm-it[aria-pressed="true"]{box-shadow:2px 2px 0 var(--line);color:var(--on-accent)}
+.xm-it[aria-pressed="true"]::before{content:"✓ "}
+.xm-col.A .xm-badge,.xm-col.A .xm-it[aria-pressed="true"]{background:var(--tomato)}
+.xm-col.B .xm-badge,.xm-col.B .xm-it[aria-pressed="true"]{background:var(--turmeric)}
+.xm-col.C .xm-badge,.xm-col.C .xm-it[aria-pressed="true"]{background:var(--teal)}
+.xm-col.E .xm-badge,.xm-col.E .xm-it[aria-pressed="true"]{background:var(--sky)}
+.xm-pick{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);display:grid;gap:12px;background:color-mix(in srgb,var(--turmeric) 14%,var(--surface))}
+.xm-pick-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.xm-list{margin:0;padding-left:22px;display:grid;gap:8px;font-size:14.5px}
+.xm-list li span{font-family:var(--f-mono);font-size:12.5px;font-weight:700;color:var(--ink-soft);display:block}
+.xm-list li.empty{color:var(--ink-soft);font-style:italic}
+.xm-btns{display:flex;flex-wrap:wrap;gap:8px}
+.xm-btns .tab{padding:6px 14px;font-size:14px}
+@media (max-width:1180px){.xm-grid{grid-template-columns:1fr}.xm-pick{position:static}}
+@media (max-width:760px){.xm-cols{grid-template-columns:1fr}}
+
 /* view switch */
 .views{display:inline-flex;border:2px solid var(--line);border-radius:999px;overflow:hidden;flex:none;margin-right:6px}
 .nav .views a{border:0;border-radius:0;padding:6px 14px;background:var(--surface)}
@@ -380,6 +407,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
     </span>
     <a href="#day">My day</a>
     <a href="#train">Workouts</a>
+    <a href="#menu">Exercise menu</a>
     <a href="#pullup">Pull-up quest</a>
     <a href="#food">Food</a>
     <a href="#supps">Supplements</a>
@@ -517,7 +545,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Training · pick the week you're having</p><h2>Three plans, one for every kind of week</h2></div>
-      <p>Your old 6-day split (one body part per day) breaks the moment life gets busy, because a missed day means that muscle waits 2 weeks. These plans hit every muscle 2× a week, so missing a day costs little. Use green as the default. Switch to yellow or red without guilt.</p>
+      <p>Your old 6-day split (one body part per day) breaks the moment life gets busy, because a missed day means that muscle waits 2 weeks. These plans hit every muscle 2× a week, so missing a day costs little. Use green as the default. Switch to yellow or red without guilt. Want variety? <a href="#menu">Build your own 5 in the exercise menu</a>.</p>
     </div>
 
     <div class="tabs" role="tablist" aria-label="Week type">
@@ -699,6 +727,31 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
       <div class="sticker rule"><span class="big">8 min warm-up</span><p>5 min brisk walk at 6–7 km/h plus arm circles and hip openers. Move your 10 min run at 8 km/h to the end so it doesn't eat your lifting energy.</p></div>
       <div class="sticker rule"><span class="big">Add reps, then weight</span><p>Choose a weight you can lift for 8 reps with 2 left in the tank. Once you hit the top of the range on every set, add 2.5 kg (upper body) or 5 kg (legs).</p></div>
       <div class="sticker rule"><span class="big">Log every set</span><p>Use Hevy, Strong or phone notes. If you can't see last week's numbers, you're guessing. Rest 90 s on most sets and 2–3 min on squat, bench and deadlift.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Big gym, lots of machines</p><h2>Exercise menu: build your own 5</h2></div>
+      <p>Pick a day, then tap 5 exercises: 1 main lift, 2 secondary, 2 isolation. Keep the main lift the same for 4 weeks so you can see it go up. Swap the other 4 every week to keep things fresh. Your picks are saved in this browser.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Training day" id="xm-tabs"></div>
+    <div class="xm-grid">
+      <div class="xm-cols" id="xm-cols"></div>
+      <aside class="sticker xm-pick">
+        <div class="xm-pick-top"><h3 id="xm-title">Today's 5</h3><span class="tag mono" id="xm-count">0/5</span></div>
+        <ol class="xm-list" id="xm-list"></ol>
+        <p class="fin" id="xm-engine"></p>
+        <div class="xm-btns">
+          <button type="button" class="tab" id="xm-shuffle">Shuffle</button>
+          <button type="button" class="tab" id="xm-default">Plan default</button>
+          <button type="button" class="tab" id="xm-clear">Clear</button>
+        </div>
+        <p class="muted" style="font-size:13px">Before each session: 8 min warm-up. Rest 2–3 min on the main lift, 60–90 s on the rest.</p>
+      </aside>
     </div>
   </div>
 </section>
@@ -1001,11 +1054,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
 <div id="log" hidden>
   <div class="wrap log-head">
     <div>
-      <p class="eyebrow">Daily log · week 1 · Oct 4–10, 2026</p>
+      <p class="eyebrow" id="log-eyebrow">Daily log</p>
       <h1>What you actually did</h1>
       <p class="lede">Every day you tell me, logged with estimated calories and protein. Amounts marked ≈ are my guesses. Send me exact counts and I'll correct them.</p>
     </div>
-    <div class="wkstrip" id="wkstrip" aria-label="Week 1 at a glance"></div>
+    <div class="wkstrip" id="wkstrip" aria-label="This week at a glance"></div>
   </div>
   <div class="wrap log-grid">
     <aside class="log-side">
@@ -1021,32 +1074,37 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
       <div class="sticker" style="background:color-mix(in srgb,var(--leaf) 16%,var(--surface))">
         <h3>Going well</h3>
         <ul class="side-list" style="margin-top:8px">
-          <li>3 training sessions in the first 3 days</li>
-          <li>Zero junk, oily or creamy food</li>
-          <li>Banana before the gym and whey after it, every time, plus a 2nd scoop after football</li>
-          <li>Gym sessions at ~75 min, right in the target range</li>
-          <li>Buttermilk with dinner instead of soft drinks</li>
-          <li>Rest day after football. That was the right call.</li>
+          <li>Week 1: 4 gym sessions + 1 football. That's a full green week.</li>
+          <li>Water went from 1 L to 2 L on Thu and Fri</li>
+          <li>Friday: ~200 g protein plus a 4 km walk after dinner</li>
+          <li>Zero junk, oily or creamy food all week</li>
+          <li>Thu and Fri followed the plan days (legs, then upper)</li>
         </ul>
       </div>
       <div class="sticker" style="background:color-mix(in srgb,var(--tomato) 13%,var(--surface))">
         <h3>Fix next</h3>
         <ul class="side-list" style="margin-top:8px">
-          <li><b>Water is 1 L a day. Target is 3.5 L.</b> This is the biggest gap. Add 500 ml each week: 1.5 L this week, then 2 L, and so on.</li>
-          <li><b>Dinner is low on protein.</b> A big paneer paratha gives ~15 g, dal khichdi ~15 g. Add 3 boiled eggs from home, or order tandoori chicken + 2 roti.</li>
+          <li><b>Protein swings from 73 g to 200 g.</b> Days without chicken are the low ones. Aim for one chicken, paneer or curd portion at every main meal so every day lands at 130–160 g.</li>
+          <li><b>Water: 2 L, target 3.5 L.</b> Go to 2.5 L in week 2.</li>
+          <li><b>Juice is showing up often.</b> A large orange juice is ~180 kcal. Eat 2 oranges instead.</li>
           <li><b>Start the 11:30 PM small meal.</b> 200 g Greek yogurt adds ~20 g protein at ~150 kcal and stops late shawarma cravings.</li>
-          <li><b>Follow the plan days.</b> From week 2, do Push / Pull / Legs instead of mixed sessions. Mixed was fine for re-entry.</li>
+          <li><b>Week 2: build sessions from the exercise menu.</b> Pick 5 per day and keep the main lift the same for 4 weeks.</li>
         </ul>
       </div>
       <div class="sticker">
         <h3>Send me a day like this</h3>
-        <div class="howto" style="margin-top:8px">Thu Oct 8
-Wake 9:00 · sleep 1:15
-Gym: Push, 80 min (or rest / football)
-Brunch: 2 dosa + 3 eggs + chutney
-Dinner: 3 roti + chicken tikka
-Late: 200 g curd
-Water: 2.5 L · Steps: 7k</div>
+        <p class="muted" style="font-size:13.5px;margin-top:4px">Copy <span class="mono">day-template.md</span> from the repo, fill it in, and paste it to me.</p>
+        <div class="howto" style="margin-top:8px">## Day:
+- Wake / sleep:
+- Workout:
+- Pre / post gym:
+- Brunch:
+- Evening:
+- Late (11:30):
+- Extras:
+- Water:
+- Weight:
+- Notes:</div>
       </div>
     </aside>
     <div class="days" id="days"></div>
@@ -1106,7 +1164,33 @@ var LOG=[
           {n:'Buttermilk',q:'1 glass',k:60,p:3},
           {n:'Juice, no added sugar',q:'2 glasses',k:240,p:2,est:true},
           {n:'Shawarma',q:'small · late, outside',k:380,p:20,est:true}],
-   coach:'Calories fine for a rest day. Protein was the lowest of the week (~73 g) because there was no chicken or eggs at dinner. Juice without added sugar still has about 120 kcal of fruit sugar a glass. Fine once in a while.'}
+   coach:'Calories fine for a rest day. Protein was the lowest of the week (~73 g) because there was no chicken or eggs at dinner. Juice without added sugar still has about 120 kcal of fruit sugar a glass. Fine once in a while.'},
+  {date:'2026-10-08',label:'Day 4',type:['gym'],water:2,
+   work:'Gym · legs-focused mix (3 leg + 2 arm exercises) · 8 min intense treadmill walk',
+   items:[{n:'Low-sugar tea',q:'morning',k:45,p:2},
+          {n:'Banana',q:'pre-gym (usual)',k:105,p:1,est:true},
+          {n:'Whey shake',q:'after gym (usual)',k:120,p:24,est:true},
+          {n:'Chapati',q:'3',k:300,p:9},
+          {n:'Eggs',q:'3',k:255,p:19},
+          {n:'Low-sugar tea',q:'evening',k:45,p:2},
+          {n:'Chapati',q:'3',k:300,p:9},
+          {n:'Aloo sabji',q:'1 portion',k:200,p:3,est:true},
+          {n:'Eggs',q:'3',k:255,p:19}],
+   coach:'Water doubled to 2 L, ahead of this week’s 1.5 L step. Protein was only ~88 g: chapati, eggs and aloo with no chicken, paneer or curd. Swap the aloo for chicken or paneer.'},
+  {date:'2026-10-09',label:'Day 5',type:['gym'],water:2,
+   work:'Gym · Upper day from the plan · 8 min run · 4 km walk after night food',
+   items:[{n:'Low-sugar tea',q:'morning',k:45,p:2},
+          {n:'Banana',q:'pre-gym (usual)',k:105,p:1,est:true},
+          {n:'Whey shake',q:'after gym (usual)',k:120,p:24,est:true},
+          {n:'Home chicken',q:'250 g',k:450,p:69},
+          {n:'Big dosa',q:'2',k:380,p:9,est:true},
+          {n:'Low-sugar tea',q:'evening',k:45,p:2},
+          {n:'Dal khichdi',q:'restaurant plate',k:450,p:15,est:true},
+          {n:'Buttermilk',q:'1 glass',k:60,p:3},
+          {n:'Home chicken',q:'250 g',k:450,p:69},
+          {n:'Chapati',q:'2',k:200,p:6},
+          {n:'Orange juice, no sugar',q:'large, ~400 ml',k:180,p:3,est:true}],
+   coach:'Protein hit 200 g, your best day. Calories went ~330 over because you ate 4 meals with chicken twice. The 4 km walk cancels most of it. On double-chicken days, drop the dosa or the khichdi.'}
 ];
 
 (function(){
@@ -1119,9 +1203,15 @@ var LOG=[
   var TAGS={gym:'Gym',fb:'Football',rest:'Rest',setup:'Setup'};
   var byDate={};LOG.forEach(function(x){byDate[x.date]=x;});
 
-  // week strip: Sun Oct 4 → Sat Oct 10
+  // week strip: program week (Sun–Sat) holding today or the latest logged day
   var todayKey=key(new Date());
-  var start=d('2026-10-04'),strip='';
+  var p0=d('2026-10-04'),lastLog=d(LOG[LOG.length-1].date),now=new Date();now.setHours(0,0,0,0);
+  var ref=now>lastLog?now:lastLog;
+  var wkN=Math.max(1,Math.min(12,Math.floor((ref-p0)/864e5/7)+1));
+  var start=new Date(p0);start.setDate(p0.getDate()+(wkN-1)*7);
+  var end=new Date(start);end.setDate(start.getDate()+6);
+  document.getElementById('log-eyebrow').textContent='Daily log \u00b7 week '+wkN+' \u00b7 '+MN[start.getMonth()]+' '+start.getDate()+'\u2013'+(end.getMonth()!==start.getMonth()?MN[end.getMonth()]+' ':'')+end.getDate()+', '+end.getFullYear();
+  var strip='';
   for(var i=0;i<7;i++){
     var dt=new Date(start);dt.setDate(start.getDate()+i);
     var k=key(dt),e=byDate[k],cls='empty',txt='Not logged';
@@ -1178,8 +1268,93 @@ var LOG=[
   window.addEventListener('hashchange',route);route();
 })();
 
+/* EXERCISE MENU — A main (pick 1), B secondary (pick 2), C isolation (pick 2), E engine (pick 1, lower day only) */
+var MENU={
+  push:{name:'Push',sub:'Chest · Shoulder · Tri',sets:{A:'4 × 6–10',B:'3 × 8–12',C:'3 × 12–15'},
+    fin:'Finisher: incline walk 15 min, 10–12% at 5 km/h.',
+    A:['Barbell bench press','Incline barbell bench','Dumbbell bench press','Smith machine incline press','Hammer Strength chest press','Seated machine chest press','Standing overhead press'],
+    B:['Incline dumbbell press','Hammer Strength incline press','Decline press machine','Seated DB shoulder press','Machine shoulder press','Landmine press','Assisted dip machine','Arnold press'],
+    C:['Pec deck fly','Cable crossover (high to low)','Low-to-high cable fly','Incline DB fly','DB lateral raise','Cable lateral raise','Machine lateral raise','Rope cable pushdown','Overhead cable triceps ext.','EZ-bar skull crusher','Triceps dip machine','Cable kickback'],
+    hint:'Isolation tip: pick 1 shoulder + 1 triceps.',
+    def:{A:['Barbell bench press'],B:['Incline dumbbell press','Seated DB shoulder press'],C:['DB lateral raise','Rope cable pushdown']}},
+  pull:{name:'Pull',sub:'Back · Bi · Rear delt',sets:{A:'4 × 6–10',B:'3 × 8–12',C:'3 × 10–15'},
+    fin:'Finisher: dead hang 3 × max, then incline walk 15 min.',
+    A:['Assisted pull-up machine','Lat pulldown (wide)','Barbell row','Chest-supported T-bar row','Hammer Strength high row','Seated cable row (V-grip)'],
+    B:['Neutral-grip pulldown','Single-arm DB row','Hammer Strength low row','Chest-supported machine row','Single-arm cable pulldown','Meadows row (landmine)','Straight-arm cable pulldown','Wide-grip cable row'],
+    C:['Face pull','Rear-delt pec deck','Reverse cable fly','DB curl','EZ-bar curl','Preacher curl machine','Incline DB curl','Hammer curl','Bayesian cable curl','DB shrug'],
+    hint:'Isolation tip: pick 1 rear delt + 1 biceps.',
+    def:{A:['Assisted pull-up machine'],B:['Neutral-grip pulldown','Wide-grip cable row'],C:['Face pull','DB curl']}},
+  legs:{name:'Legs + core',sub:'Quads · Hams · Abs',sets:{A:'4 × 6–10',B:'3 × 8–12',C:'3 × 12–15'},
+    fin:'Finisher: 10 min easy bike, only if your legs still have something left.',
+    A:['Barbell back squat','Hack squat machine','Smith machine squat','Pendulum squat','Belt squat','Goblet squat (heavy DB)'],
+    B:['Leg press','Romanian deadlift','Walking lunges','Bulgarian split squat','Smith reverse lunge','Box step-ups','Single-leg leg press'],
+    C:['Leg extension','Lying leg curl','Seated leg curl','Hip adductor machine','Hip abductor machine','Standing calf raise','Seated calf raise','Plank','Cable crunch','Hanging knee raise','Ab wheel','Pallof press'],
+    hint:'Isolation tip: pick 1 leg + 1 core.',
+    def:{A:['Barbell back squat'],B:['Romanian deadlift','Leg press'],C:['Lying leg curl','Plank']}},
+  upper:{name:'Upper',sub:'Mixed push + pull',sets:{A:'3 × 8–10',B:'3 × 8–12',C:'2–3 × 12–15'},
+    fin:'Finisher: run intervals 10 min, alternating 1 min at 10 km/h and 1 min at 6 km/h.',
+    A:['Incline dumbbell press','Seated machine chest press','Smith machine incline press','Chest-supported T-bar row','Lat pulldown (wide)','Hammer Strength iso-lateral row'],
+    B:['Arnold press','Machine shoulder press','Pull-up negatives (week 5+)','Wide-grip cable row','Push-ups (max reps)','Assisted dip machine','Single-arm DB row'],
+    C:['Superset: curl + pushdown','Cable lateral raise','Pec deck fly','Face pull','Preacher curl machine','Overhead cable triceps ext.','Reverse pec deck','Farmer’s carry'],
+    hint:'Balance tip: if the main lift is a press, make one secondary a row or pulldown.',
+    def:{A:['Incline dumbbell press'],B:['Single-arm DB row','Arnold press'],C:['Superset: curl + pushdown','Cable lateral raise']}},
+  lower:{name:'Lower + engine',sub:'Hinge · Glutes · Stamina',sets:{A:'3 × 5–8',B:'3 × 8–12',C:'3 × 10–15'},
+    fin:'',
+    A:['Conventional deadlift','Trap-bar deadlift','Sumo deadlift','Romanian deadlift','Hip thrust machine','Belt squat'],
+    B:['Bulgarian split squat','Barbell hip thrust','Leg press (feet high)','45° back extension','Cable pull-through','DB walking lunges','Single-leg RDL','Reverse hyper'],
+    C:['Seated leg curl','Assisted Nordic curl','Glute kickback machine','Leg extension','Hip adductor machine','Standing calf raise','Hanging knee raise','Cable crunch','Decline sit-up','Dead bug'],
+    E:['Bike sprints 8 × 20 s','Rower 4 × 500 m','Ski erg 10 × 30 s','Sled push 6 lengths','Air bike 10 × 15 s','Stair climber 10 min','Battle ropes 8 × 30 s','KB swings EMOM 10 min','Football this week (skip)'],
+    hint:'Isolation tip: pick 1 hamstring/glute + 1 core.',
+    def:{A:['Conventional deadlift'],B:['Bulgarian split squat','Barbell hip thrust'],C:['Hanging knee raise','Cable crunch'],E:['Bike sprints 8 × 20 s']}}
+};
 (function(){
-  var tabs=document.querySelectorAll('.tab');
+  var LIM={A:1,B:2,C:2,E:1},LBL={A:'Main lift',B:'Secondary',C:'Isolation',E:'Engine'};
+  var KEY='p78-menu',state={},cur='push';
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
+  function clone(o){return JSON.parse(JSON.stringify(o));}
+  function picks(d){if(!state[d])state[d]=clone(MENU[d].def);return state[d];}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+  function cats(d){return MENU[d].E?['A','B','C','E']:['A','B','C'];}
+  function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  var tabsEl=document.getElementById('xm-tabs'),colsEl=document.getElementById('xm-cols');
+  tabsEl.innerHTML=Object.keys(MENU).map(function(d){return '<button class="tab" role="tab" type="button" data-d="'+d+'" aria-selected="'+(d===cur)+'">'+MENU[d].name+'</button>';}).join('');
+  function render(){
+    var m=MENU[cur],p=picks(cur);
+    tabsEl.querySelectorAll('.tab').forEach(function(b){b.setAttribute('aria-selected',b.dataset.d===cur?'true':'false');});
+    colsEl.innerHTML=cats(cur).filter(function(c){return c!=='E';}).concat(m.E?['E']:[]).map(function(c){
+      var sets=c==='E'?'8–12 min':m.sets[c];
+      return '<div class="sticker xm-col '+c+'"><h3><span class="xm-badge">'+c+'</span>'+LBL[c]+'</h3>'+
+        '<span class="rule-l">Pick '+LIM[c]+' · '+sets+'</span>'+
+        (c==='C'?'<span class="muted" style="font-size:13px">'+m.hint+'</span>':'')+
+        '<div class="xm-items">'+m[c].map(function(it){var on=(p[c]||[]).indexOf(it)>-1;return '<button type="button" class="xm-it" data-c="'+c+'" data-it="'+esc(it)+'" aria-pressed="'+on+'">'+esc(it)+'</button>';}).join('')+'</div></div>';
+    }).join('');
+    var list='',n=0;
+    ['A','B','C'].forEach(function(c){
+      for(var i=0;i<LIM[c];i++){var it=(p[c]||[])[i];if(it){n++;list+='<li>'+esc(it)+'<span>'+LBL[c]+' · '+m.sets[c]+'</span></li>';}else list+='<li class="empty">Pick a '+LBL[c].toLowerCase()+'</li>';}
+    });
+    document.getElementById('xm-list').innerHTML=list;
+    document.getElementById('xm-count').textContent=n+'/5';
+    document.getElementById('xm-title').textContent=m.name+' · your 5';
+    document.getElementById('xm-engine').textContent=m.E?('Engine: '+((p.E||[])[0]||'pick one')+'.'):m.fin;
+  }
+  tabsEl.addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;cur=b.dataset.d;render();});
+  colsEl.addEventListener('click',function(e){
+    var b=e.target.closest('.xm-it');if(!b)return;
+    var c=b.dataset.c,it=b.dataset.it,p=picks(cur),arr=p[c]||(p[c]=[]),i=arr.indexOf(it);
+    if(i>-1)arr.splice(i,1);else{arr.push(it);while(arr.length>LIM[c])arr.shift();}
+    save();render();
+  });
+  document.getElementById('xm-shuffle').addEventListener('click',function(){
+    var p={};cats(cur).forEach(function(c){var pool=MENU[cur][c].slice();p[c]=[];for(var i=0;i<LIM[c];i++)p[c].push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);});
+    state[cur]=p;save();render();
+  });
+  document.getElementById('xm-default').addEventListener('click',function(){state[cur]=clone(MENU[cur].def);save();render();});
+  document.getElementById('xm-clear').addEventListener('click',function(){state[cur]={A:[],B:[],C:[],E:[]};save();render();});
+  render();
+})();
+
+(function(){
+  var tabs=document.querySelectorAll('#train .tab');
   tabs.forEach(function(t){
     t.addEventListener('click',function(){
       tabs.forEach(function(o){
