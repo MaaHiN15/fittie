@@ -283,6 +283,11 @@ section{padding-block:clamp(40px,6vw,80px)}
 .rv.c-A{background:color-mix(in srgb,var(--tomato) 26%,var(--surface))}
 .rv.c-B{background:color-mix(in srgb,var(--turmeric) 36%,var(--surface))}
 .rv.c-C{background:color-mix(in srgb,var(--teal) 24%,var(--surface))}
+.rv.c-E{background:color-mix(in srgb,var(--sky) 26%,var(--surface))}
+.xm-card.dup{opacity:.62}
+.xm-card.dup:hover{opacity:1}
+.xm-dup{position:absolute;right:4px;top:4px;z-index:3;font:800 9.5px/1 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;background:var(--ink);color:var(--bg);border-radius:4px;padding:3px 5px}
+.anim.single img{object-fit:contain}
 .rv-sets{font:700 11px var(--f-mono);color:var(--ink-soft)}
 .xm-rm{font:inherit;font-size:12px;font-weight:800;cursor:pointer;border:2px solid var(--line);border-radius:999px;padding:3px 0;background:var(--surface);color:var(--ink)}
 .xm-rm:hover{background:var(--tomato);color:var(--on-accent)}
@@ -591,7 +596,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
         <div class="slot"><span class="t">9:00</span><span class="w">Wake up</span><span class="x">Low-sugar tea (keep it), 500 ml water, 5 g creatine.</span></div>
         <div class="slot eat"><span class="t">10:15</span><span class="w">Pre-gym bite</span><span class="x">1 banana. You're already doing this.</span></div>
         <div class="slot gym"><span class="t">10:30</span><span class="w">GYM 75–90 min</span><span class="x">Warm-up, lifting, then finisher. You're already at ~75 min inside a 10:30–12:30 window.</span></div>
-        <div class="slot eat"><span class="t">12:00</span><span class="w">Whey shake</span><span class="x">1 scoop (31 g, about 24 g protein) in water.</span></div>
+        <div class="slot eat"><span class="t">12:00</span><span class="w">Whey shake</span><span class="x">1 scoop Gold Whey (30 g = 23 g protein, 120 kcal) in water.</span></div>
         <div class="slot eat"><span class="t">12:30</span><span class="w">Brunch, big meal 1</span><span class="x">Dosa or chapati + 3 eggs + chicken box. Vitamin D with this meal.</span></div>
         <div class="slot work"><span class="t">2:30</span><span class="w">Leave for office</span><span class="x">Pack 3 boiled eggs or a chicken box, plus a 1.5 L bottle.</span></div>
         <div class="slot work"><span class="t">5:00</span><span class="w">Tea break</span><span class="x">Low-sugar tea + fruit or roasted chana. No biscuits.</span></div>
@@ -665,19 +670,19 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
           <div class="sess-top"><h3>Day 3 · Legs + core</h3><span class="tag">Quads · Glutes · Abs</span></div>
           <ul class="ex">
             <li><span>Barbell back squat</span><span>4 × 6–10</span></li>
-            <li><span>Romanian deadlift (learn light)</span><span>3 × 8–10</span></li>
+            <li><span>Leg extension</span><span>3 × 12</span></li>
             <li><span>Leg press</span><span>3 × 10–12</span></li>
             <li><span>Walking lunges</span><span>2 × 10/leg</span></li>
             <li><span>Lying leg curl</span><span>3 × 12</span></li>
             <li><span>Standing calf raise</span><span>3 × 15</span></li>
-            <li><span>Side plank</span><span>3 × 30 s/side</span></li>
+            <li><span>Plank</span><span>3 × 40 s</span></li>
           </ul>
           <p class="fin"><b>Finisher:</b> 10 min easy bike. Skip it if your legs are done.</p>
         </article>
         <article class="sticker sess">
           <div class="sess-top"><h3>Day 4 · Upper</h3><span class="tag">Mixed · volume</span></div>
           <ul class="ex">
-            <li><span>Incline barbell / DB press</span><span>3 × 8–10</span></li>
+            <li><span>Dumbbell bench press</span><span>3 × 8–10</span></li>
             <li><span>T-bar row</span><span>3 × 10</span></li>
             <li><span>Pull-up negatives (from wk 5)</span><span>3 × 3</span></li>
             <li><span>Arnold press</span><span>3 × 10</span></li>
@@ -692,8 +697,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
             <li><span>Deadlift (start with bar + 20 kg)</span><span>3 × 5</span></li>
             <li><span>Bulgarian split squat</span><span>3 × 8/leg</span></li>
             <li><span>Glute bridge</span><span>3 × 12</span></li>
-            <li><span>Leg extension</span><span>2 × 15</span></li>
-            <li><span>Bent-knee hip raise</span><span>3 × 10</span></li>
+            <li><span>Seated leg curl</span><span>3 × 12</span></li>
+            <li><span>Hanging knee raise</span><span>3 × 10</span></li>
             <li><span>Cable crunch</span><span>3 × 12</span></li>
           </ul>
           <p class="fin"><b>Engine:</b> bike sprints, 8 rounds of 20 s all-out + 40 s easy. If you played football that week, skip the sprints. Football is your engine.</p>
@@ -720,7 +725,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
             <li><span>Bench press</span><span>3 × 6–10</span></li>
             <li><span>Lat pulldown</span><span>3 × 8–12</span></li>
             <li><span>Seated DB shoulder press</span><span>2 × 10</span></li>
-            <li><span>Side plank</span><span>3 × 30 s/side</span></li>
+            <li><span>Plank</span><span>3 × 40 s</span></li>
           </ul>
           <p class="fin"><b>Finisher:</b> incline walk 10 min.</p>
         </article>
@@ -732,7 +737,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
             <li><span>Seated cable row</span><span>3 × 8–12</span></li>
             <li><span>Assisted pull-up</span><span>2 × 8</span></li>
             <li><span>Lateral raise</span><span>2 × 15</span></li>
-            <li><span>Bent-knee hip raise</span><span>3 × 10</span></li>
+            <li><span>Hanging knee raise</span><span>3 × 10</span></li>
           </ul>
           <p class="fin"><b>Finisher:</b> bike sprints 6 × 20 s.</p>
         </article>
@@ -776,7 +781,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
             <li><span>Single-arm DB row</span><span>40 s</span></li>
             <li><span>Dumbbell deadlift</span><span>40 s</span></li>
             <li><span>DB shoulder press</span><span>40 s</span></li>
-            <li><span>Side plank</span><span>40 s</span></li>
+            <li><span>Plank</span><span>40 s</span></li>
           </ul>
         </article>
         <article class="sticker sess">
@@ -1011,13 +1016,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
     <div class="shelf">
       <div class="jar">
         <svg viewBox="0 0 110 130" aria-hidden="true"><rect x="12" y="30" width="86" height="96" rx="14" fill="var(--surface)" stroke="var(--line)" stroke-width="4"/><rect x="18" y="12" width="74" height="22" rx="6" fill="var(--tomato)" stroke="var(--line)" stroke-width="4"/><rect x="12" y="58" width="86" height="40" fill="var(--turmeric)" stroke="var(--line)" stroke-width="4"/><text x="55" y="84" text-anchor="middle" font-family="Bowlby One, sans-serif" font-size="16" fill="var(--on-accent)">WHEY</text></svg>
-        <span class="lab">Whey</span><span class="st" style="background:var(--leaf);color:var(--on-accent)">You have it</span>
-        <p>1 scoop after every workout. Add a 2nd scoop only on days you fall short of 150 g.</p>
+        <span class="lab">Whey</span><span class="st" style="background:var(--leaf);color:var(--on-accent)">Have it · Gold Whey</span>
+        <p>1 scoop (30 g) = 23 g protein, 120 kcal. Always after the gym. Add a 2nd scoop on days without chicken or paneer, best at 11:30 PM in milk.</p>
       </div>
       <div class="jar">
         <svg viewBox="0 0 110 130" aria-hidden="true"><rect x="20" y="38" width="70" height="88" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="4"/><rect x="26" y="20" width="58" height="22" rx="6" fill="var(--ink)" stroke="var(--line)" stroke-width="4"/><rect x="20" y="62" width="70" height="36" fill="var(--sky)" stroke="var(--line)" stroke-width="4"/><text x="55" y="86" text-anchor="middle" font-family="Bowlby One, sans-serif" font-size="13" fill="var(--on-accent)">CREATINE</text></svg>
-        <span class="lab">Creatine</span><span class="st" style="background:var(--turmeric);color:var(--on-accent)">Buy · ~100 AED</span>
-        <p>Plain monohydrate, 3–5 g every day including rest days. No loading phase. The most proven supplement for strength. Drink more water with it.</p>
+        <span class="lab">Creatine</span><span class="st" style="background:var(--leaf);color:var(--on-accent)">Have it · Gold Creatine</span>
+        <p>1 scoop = 5 g monohydrate, every day including rest days. Any time works; morning with water is easiest to remember. No loading phase. 300 g lasts 60 days.</p>
       </div>
       <div class="jar">
         <svg viewBox="0 0 110 130" aria-hidden="true"><rect x="26" y="44" width="58" height="82" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="4"/><rect x="32" y="28" width="46" height="20" rx="6" fill="var(--turmeric)" stroke="var(--line)" stroke-width="4"/><circle cx="55" cy="84" r="16" fill="var(--turmeric)" stroke="var(--line)" stroke-width="3"/><text x="55" y="90" text-anchor="middle" font-family="Bowlby One, sans-serif" font-size="14" fill="var(--on-accent)">D3</text></svg>
@@ -1212,7 +1217,7 @@ var LOG=[
    work:'Gym ~75 min · mixed arms, back, shoulder, chest · 8 min run at 8 km/h',
    items:[{n:'Low-sugar tea',q:'morning',k:45,p:2},
           {n:'Banana',q:'pre-gym',k:105,p:1},
-          {n:'Whey shake',q:'1 scoop, water',k:120,p:24},
+          {n:'Whey shake',q:'1 scoop, water',k:120,p:23},
           {n:'Big dosa',q:'2',k:380,p:9,est:true},
           {n:'Eggs on the dosas',q:'3',k:255,p:19},
           {n:'Chutney',q:'2 tbsp',k:80,p:1,est:true},
@@ -1225,14 +1230,14 @@ var LOG=[
    work:'Gym ~75 min · mixed upper + 8 min run · football 60 min at night, intense',
    items:[{n:'Low-sugar tea',q:'morning',k:45,p:2},
           {n:'Banana',q:'pre-gym',k:105,p:1},
-          {n:'Whey shake',q:'after gym',k:120,p:24},
+          {n:'Whey shake',q:'after gym',k:120,p:23},
           {n:'Big dosa',q:'2',k:380,p:9,est:true},
           {n:'Eggs on the dosas',q:'3',k:255,p:19},
           {n:'Chutney',q:'2 tbsp',k:80,p:1,est:true},
           {n:'Low-sugar tea',q:'evening',k:45,p:2},
           {n:'Paneer paratha',q:'1 big',k:450,p:15,est:true},
           {n:'Buttermilk',q:'1 glass',k:60,p:3},
-          {n:'Whey shake',q:'after football',k:120,p:24}],
+          {n:'Whey shake',q:'after football',k:120,p:23}],
    coach:'The 2nd scoop after football was a good move. Still, gym + football burned about 1,000 kcal and you ate only ~1,660. On football days, add a chicken box or 200 g curd.'},
   {date:'2026-10-07',label:'Day 3',type:['rest'],water:1,
    work:'Rest day after football.',
@@ -1250,7 +1255,7 @@ var LOG=[
    work:'Gym · legs-focused mix (3 leg + 2 arm exercises) · 8 min intense treadmill walk',
    items:[{n:'Low-sugar tea',q:'morning',k:45,p:2},
           {n:'Banana',q:'pre-gym (usual)',k:105,p:1,est:true},
-          {n:'Whey shake',q:'after gym (usual)',k:120,p:24,est:true},
+          {n:'Whey shake',q:'after gym (usual)',k:120,p:23,est:true},
           {n:'Chapati',q:'3',k:300,p:9},
           {n:'Eggs',q:'3',k:255,p:19},
           {n:'Low-sugar tea',q:'evening',k:45,p:2},
@@ -1262,7 +1267,7 @@ var LOG=[
    work:'Gym · Upper day from the plan · 8 min run · 4 km walk after night food',
    items:[{n:'Low-sugar tea',q:'morning',k:45,p:2},
           {n:'Banana',q:'pre-gym (usual)',k:105,p:1,est:true},
-          {n:'Whey shake',q:'after gym (usual)',k:120,p:24,est:true},
+          {n:'Whey shake',q:'after gym (usual)',k:120,p:23,est:true},
           {n:'Home chicken',q:'250 g',k:450,p:69},
           {n:'Big dosa',q:'2',k:380,p:9,est:true},
           {n:'Low-sugar tea',q:'evening',k:45,p:2},
@@ -1354,6 +1359,7 @@ var LOG=[
 function exAnim(n,cls){
   var x=window.EXDB&&EXDB[n];if(!x)return '';
   var w=x.vb[0],h=x.vb[1],src='img/ek/'+n+'-',arr='';
+  if(x.n===1)return '<span class="anim single '+(cls||'')+'" style="aspect-ratio:'+w+'/'+h+'"><img src="'+src+'0.png" alt="" loading="lazy"></span>';
   if(x.arrow){
     var a=x.arrow,dx=a[2]-a[0],dy=a[3]-a[1],L=Math.sqrt(dx*dx+dy*dy),deg=Math.atan2(dy,dx)*180/Math.PI;
     var s=w*.018,hl=w*.085,hw=w*.055,sw=Math.max(2,w*.012);
@@ -1377,7 +1383,7 @@ function exOpen(n,label,pick){
   label=label||exLabel(n);
   var cap=function(t){return t.charAt(0).toUpperCase()+t.slice(1);};
   document.getElementById('exdlg-body').innerHTML=
-    '<div class="dlg-art">'+exAnim(n,'big')+'<p class="muted dlg-note">Orange arrow = direction of the movement. Start → end, then back.</p></div>'+
+    '<div class="dlg-art">'+exAnim(n,'big')+(x.n===1?'':'<p class="muted dlg-note">Orange arrow = direction of the movement. Start → end, then back.</p>')+'</div>'+
     '<div class="dlg-txt"><p class="eyebrow">How to do it</p><h2 id="exdlg-title">'+exEsc(label||x.t)+'</h2>'+
     (label&&label!==x.t?'<p class="muted" style="font-size:13.5px">Also called: '+exEsc(x.t)+'</p>':'')+
     '<div class="pills" style="margin-top:4px">'+x.mus.map(function(m){return '<span class="pill mus">'+exEsc(cap(m))+'</span>';}).join('')+
@@ -1403,11 +1409,19 @@ function exOpen(n,label,pick){
     sp.textContent='';sp.appendChild(b);
   });
   document.addEventListener('click',function(e){var b=e.target.closest('[data-open]');if(b)exOpen(b.dataset.open,b.dataset.label);});
-  document.querySelectorAll('.exlink').forEach(function(b){b.addEventListener('click',function(){exOpen(b.dataset.n,b.textContent.replace('▶','').trim());});});  if(location.hash.indexOf('#ex=')===0)exOpen(decodeURIComponent(location.hash.slice(4)));
+  document.querySelectorAll('.exlink').forEach(function(b){b.addEventListener('click',function(){exOpen(b.dataset.n,b.textContent.replace('▶','').trim());});});  var FIN={'incline walk':'incline-walk','easy bike':'stationary-bike','run intervals':'treadmill-run','bike sprints':'spin-bike','brisk walk':'incline-walk'};
+  document.querySelectorAll('.sess .fin, .rule p').forEach(function(p){Object.keys(FIN).forEach(function(k){
+    var i=p.innerHTML.indexOf(k);if(i<0||p.querySelector('[data-open="'+FIN[k]+'"]'))return;
+    p.innerHTML=p.innerHTML.slice(0,i)+'<button type="button" class="exlink" data-open="'+FIN[k]+'">'+k+'<span class="cam" aria-hidden="true">▶</span></button>'+p.innerHTML.slice(i+k.length);});});
+  var QUEST=[['Dead hang','dead-hang'],['Scapular pulls','scapular-pulls'],['Assisted machine','pull-ups'],['Jump up, then lower slowly','pull-ups'],['Band-assisted','pull-ups'],['Negatives','pull-ups'],['Flexed-arm hang','flexed-arm-hang'],['Assistance at','pull-ups'],['Heavier lat pulldown','wide-grip-lat-pull-down']];
+  document.querySelectorAll('.lvl li').forEach(function(li){QUEST.some(function(q){if(li.textContent.indexOf(q[0])!==0)return false;
+    li.innerHTML='<button type="button" class="exlink" data-open="'+q[1]+'">'+exEsc(q[0])+'<span class="cam" aria-hidden="true">▶</span></button>'+li.innerHTML.slice(q[0].length);return true;});});
+  if(location.hash.indexOf('#ex=')===0)exOpen(decodeURIComponent(location.hash.slice(4)));
 })();
 (function(){
   var LIM={A:1,B:2,C:2,E:1},LBL={A:'Main lift',B:'Secondary',C:'Isolation',E:'Engine'};
-  var KEY='p78-menu-v2',state={},cur='push';
+  var KEY='p78-menu-v3',state={},cur='push';
+  var PARTNER={push:['upper'],pull:['upper'],upper:['push','pull'],legs:['lower'],lower:['legs']};
   try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
   function clone(o){return JSON.parse(JSON.stringify(o));}
   function picks(d){if(!state[d])state[d]=clone(MENU[d].def);return state[d];}
@@ -1417,22 +1431,22 @@ function exOpen(n,label,pick){
   var tabsEl=document.getElementById('xm-tabs'),colsEl=document.getElementById('xm-cols');
   tabsEl.innerHTML=Object.keys(MENU).map(function(d){return '<button class="tab" role="tab" type="button" data-d="'+d+'" aria-selected="'+(d===cur)+'">'+MENU[d].name+'</button>';}).join('');
   function render(){
-    var m=MENU[cur],p=picks(cur);
+    var m=MENU[cur],p=picks(cur),used={};
+    (PARTNER[cur]||[]).forEach(function(d){var pp=picks(d);Object.keys(pp).forEach(function(c){(pp[c]||[]).forEach(function(l){var id=exOf(d,c,l);if(id&&!used[id])used[id]=MENU[d].name;});});});
     tabsEl.querySelectorAll('.tab').forEach(function(b){b.setAttribute('aria-selected',b.dataset.d===cur?'true':'false');});
     colsEl.innerHTML=cats(cur).map(function(c){
       var sets=c==='E'?'8–12 min':m.sets[c];
       var items=m[c].map(function(it){
-        var on=(p[c]||[]).indexOf(it[0])>-1,lab=exEsc(it[0]);
+        var on=(p[c]||[]).indexOf(it[0])>-1,lab=exEsc(it[0]),dup=used[it[1]];
         if(!it[1])return '<button type="button" class="xm-it" data-c="'+c+'" data-it="'+lab+'" aria-pressed="'+on+'">'+lab+'</button>';
-        return '<div class="xm-card'+(on?' on':'')+'"><button type="button" class="xm-view" data-ex="'+it[1]+'" data-c="'+c+'" data-it="'+lab+'" aria-label="Open '+lab+'">'+exAnim(it[1],'thumb')+'<span class="xm-lab">'+lab+'</span></button>'+
+        return '<div class="xm-card'+(on?' on':'')+(dup?' dup':'')+'">'+(dup?'<span class="xm-dup">On '+dup+'</span>':'')+'<button type="button" class="xm-view" data-ex="'+it[1]+'" data-c="'+c+'" data-it="'+lab+'" aria-label="Open '+lab+'">'+exAnim(it[1],'thumb')+'<span class="xm-lab">'+lab+'</span></button>'+
           '<button type="button" class="xm-add'+(on?' on':'')+'" data-c="'+c+'" data-it="'+lab+'" aria-pressed="'+on+'">'+(on?'✓ Added':'+ Add')+'</button></div>';
       }).join('');
       return '<div class="sticker xm-col '+c+'"><div class="xm-head"><h3><span class="xm-badge">'+c+'</span>'+LBL[c]+'</h3>'+
         '<span class="rule-l">Pick '+LIM[c]+' · '+sets+'</span>'+
         (c==='C'?'<span class="muted" style="font-size:12.5px">'+m.hint+'</span>':'')+
         '<span class="muted" style="font-size:12px">'+m[c].length+' options</span></div>'+
-        (c==='E'?'<div class="xm-items">'+items+'</div>':
-          '<div class="xm-strip"><button type="button" class="xm-nav prev" aria-label="Scroll left">‹</button><div class="xm-cards">'+items+'</div><button type="button" class="xm-nav next" aria-label="Scroll right">›</button></div>')+'</div>';
+        '<div class="xm-strip"><button type="button" class="xm-nav prev" aria-label="Scroll left">‹</button><div class="xm-cards">'+items+'</div><button type="button" class="xm-nav next" aria-label="Scroll right">›</button></div></div>';
     }).join('');
     var list='',n=0,k=0;
     ['A','B','C'].forEach(function(c){
@@ -1444,11 +1458,14 @@ function exOpen(n,label,pick){
             '<button type="button" class="xm-rm" data-c="'+c+'" data-it="'+lab+'">✕ Remove</button></div>';}
         else list+='<div class="xm-card rv empty"><span class="num">'+k+'</span>Pick a '+LBL[c].toLowerCase()+' above</div>';}
     });
+    if(m.E){var e0=(p.E||[])[0],eid=e0?exOf(cur,'E',e0):null;k++;
+      list+=e0?'<div class="xm-card rv c-E"><span class="num">'+k+'</span><button type="button" class="xm-view" data-ex="'+eid+'" data-c="E" data-it="'+exEsc(e0)+'" aria-label="Open '+exEsc(e0)+'">'+exAnim(eid,'thumb')+'<span class="xm-lab">'+exEsc(e0)+'</span></button><span class="rv-sets">Engine · 8–12 min</span><button type="button" class="xm-rm" data-c="E" data-it="'+exEsc(e0)+'">✕ Remove</button></div>'
+        :'<div class="xm-card rv empty"><span class="num">'+k+'</span>Pick an engine finisher above</div>';}
     document.getElementById('xm-list').innerHTML=list;
     navs();
     document.getElementById('xm-count').textContent=n+'/5';
     document.getElementById('xm-title').textContent=m.name+' · your 5';
-    document.getElementById('xm-engine').textContent=m.E?('Engine: '+((p.E||[])[0]||'pick one')+'.'):m.fin;
+    document.getElementById('xm-engine').textContent=m.E?'Engine finisher is card 6.':m.fin;
   }
   tabsEl.addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;cur=b.dataset.d;render();});
   function onClick(e){
