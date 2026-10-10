@@ -255,6 +255,7 @@ section{padding-block:clamp(40px,6vw,80px)}
 
 /* exercise menu */
 #menu{background:var(--bg)}
+#xm-tabs .tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
 .xm-grid{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
 .xm-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .xm-col{display:grid;gap:10px;align-content:start}
@@ -279,6 +280,55 @@ section{padding-block:clamp(40px,6vw,80px)}
 .xm-btns .tab{padding:6px 14px;font-size:14px}
 @media (max-width:1180px){.xm-grid{grid-template-columns:1fr}.xm-pick{position:static}}
 @media (max-width:760px){.xm-cols{grid-template-columns:1fr}}
+
+/* exercise drawings */
+.anim{position:relative;display:block;width:100%;background:#fff;border-radius:10px;overflow:hidden}
+.anim img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.anim .b{animation:exswap 2.6s ease-in-out infinite}
+.anim .arw{position:absolute;inset:0;width:100%;height:100%}
+.anim .arw path{fill:var(--tomato);stroke:#fff;paint-order:stroke;stroke-linejoin:round}
+.anim .arw .fwd{animation:exfwd 2.6s ease-in-out infinite}
+.anim .arw .bck{animation:exbck 2.6s ease-in-out infinite}
+.anim .fr{position:absolute;left:6px;top:6px;min-width:46px;text-align:center;font:800 10.5px/1 var(--f-mono);letter-spacing:.06em;color:#fff;border-radius:5px;padding:3px 6px;background:#1A1D3A}
+.anim .fr.s{animation:exswapR 2.6s ease-in-out infinite}
+.anim .fr.e{background:var(--tomato);animation:exswap 2.6s ease-in-out infinite}
+.anim.thumb{aspect-ratio:1/1!important}
+.anim.big .fr{font-size:13px;left:10px;top:10px;padding:4px 8px;min-width:58px}
+@keyframes exswap{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
+@keyframes exswapR{0%,42%{opacity:1}50%,92%{opacity:0}100%{opacity:1}}
+@keyframes exfwd{0%,40%{opacity:1}46%,96%{opacity:0}100%{opacity:1}}
+@keyframes exbck{0%,46%{opacity:0}50%,90%{opacity:1}96%,100%{opacity:0}}
+.xm-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+.xm-card{position:relative;border:2px solid var(--line);border-radius:12px;background:var(--surface);display:grid;transition:transform .12s}
+.xm-card:hover{transform:translateY(-2px)}
+.xm-pick-b{font:inherit;color:var(--ink);background:none;border:0;padding:6px 6px 32px;cursor:pointer;display:grid;gap:6px;text-align:left;border-radius:10px}
+.xm-lab{font-size:13px;font-weight:700;line-height:1.25}
+.xm-card.on{box-shadow:3px 3px 0 var(--line)}
+.xm-col.A .xm-card.on{background:color-mix(in srgb,var(--tomato) 30%,var(--surface))}
+.xm-col.B .xm-card.on{background:color-mix(in srgb,var(--turmeric) 40%,var(--surface))}
+.xm-col.C .xm-card.on{background:color-mix(in srgb,var(--teal) 28%,var(--surface))}
+.xm-card.on .xm-lab::before{content:"✓ "}
+.xm-info{position:absolute;left:6px;bottom:6px;font:700 11.5px var(--f-body);border:1.5px solid var(--line);border-radius:999px;padding:2px 9px;background:var(--surface);color:var(--ink);cursor:pointer}
+.xm-info:hover{background:var(--turmeric);color:var(--on-accent)}
+.exlink{font:inherit;color:inherit;background:none;border:0;padding:0;text-align:left;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--tomato);text-underline-offset:3px}
+.exlink:hover{color:var(--tomato)}
+.exlink .cam{font-size:9px;color:var(--tomato);margin-left:5px;vertical-align:2px;text-decoration:none;display:inline-block}
+#exdlg{border:2.5px solid var(--line);border-radius:18px;box-shadow:8px 8px 0 var(--line);padding:0;width:min(940px,calc(100vw - 32px));max-height:calc(100vh - 40px);background:var(--surface);color:var(--ink)}
+#exdlg::backdrop{background:rgba(20,22,43,.55)}
+.dlg-x{position:sticky;top:10px;float:right;margin:10px 10px 0 0;z-index:2;font:inherit;font-size:16px;font-weight:800;width:36px;height:36px;border:2px solid var(--line);border-radius:50%;background:var(--surface);color:var(--ink);cursor:pointer}
+.dlg-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;padding:22px}
+.dlg-art .anim{border:2px solid var(--surface-2);max-height:70vh}
+.dlg-note{font-size:13px;margin-top:8px}
+.dlg-txt{display:grid;gap:10px;align-content:start}
+.dlg-txt h2{font-size:clamp(24px,3vw,34px)}
+.dlg-txt h3{font-size:17px;margin-top:6px}
+.dlg-steps,.dlg-oops{margin:0;padding-left:20px;display:grid;gap:6px;font-size:14.5px}
+.dlg-oops li::marker{content:"✗  ";color:var(--tomato);font-weight:800}
+.oops-h{color:var(--tomato)}
+.pill.mus{background:color-mix(in srgb,var(--tomato) 22%,var(--surface))}
+.pill.eq{background:var(--surface-2)}
+.dlg-credit{font-size:12px}
+@media (max-width:760px){.dlg-grid{grid-template-columns:1fr;padding:16px}.dlg-art .anim{max-height:46vh}}
 
 /* view switch */
 .views{display:inline-flex;border:2px solid var(--line);border-radius:999px;overflow:hidden;flex:none;margin-right:6px}
@@ -574,7 +624,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
             <li><span>Seated DB shoulder press</span><span>3 × 8–12</span></li>
             <li><span>Lateral raise</span><span>3 × 12–15</span></li>
             <li><span>Cable triceps pushdown</span><span>3 × 10–15</span></li>
-            <li><span>Overhead DB triceps ext.</span><span>2 × 12</span></li>
+            <li><span>Overhead triceps ext.</span><span>2 × 12</span></li>
           </ul>
           <p class="fin"><b>Finisher:</b> incline walk 15 min, 10–12% incline at 5 km/h.</p>
         </article>
@@ -584,7 +634,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
             <li><span>Assisted pull-up machine</span><span>3 × 6–10</span></li>
             <li><span>Lat pulldown</span><span>3 × 8–12</span></li>
             <li><span>Seated cable row</span><span>3 × 8–12</span></li>
-            <li><span>Face pull</span><span>3 × 15</span></li>
+            <li><span>Seated rear cable raise</span><span>3 × 15</span></li>
             <li><span>Dumbbell curl</span><span>3 × 10–12</span></li>
             <li><span>Hammer curl</span><span>2 × 12</span></li>
             <li><span>Dead hang</span><span>3 × max</span></li>
@@ -600,7 +650,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
             <li><span>Walking lunges</span><span>2 × 10/leg</span></li>
             <li><span>Lying leg curl</span><span>3 × 12</span></li>
             <li><span>Standing calf raise</span><span>3 × 15</span></li>
-            <li><span>Plank + dead bug</span><span>3 rounds</span></li>
+            <li><span>Side plank</span><span>3 × 30 s/side</span></li>
           </ul>
           <p class="fin"><b>Finisher:</b> 10 min easy bike. Skip it if your legs are done.</p>
         </article>
@@ -608,7 +658,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
           <div class="sess-top"><h3>Day 4 · Upper</h3><span class="tag">Mixed · volume</span></div>
           <ul class="ex">
             <li><span>Incline barbell / DB press</span><span>3 × 8–10</span></li>
-            <li><span>Chest-supported row</span><span>3 × 10</span></li>
+            <li><span>T-bar row</span><span>3 × 10</span></li>
             <li><span>Pull-up negatives (from wk 5)</span><span>3 × 3</span></li>
             <li><span>Arnold press</span><span>3 × 10</span></li>
             <li><span>Superset: curl + pushdown</span><span>2 × 12</span></li>
@@ -621,9 +671,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
           <ul class="ex">
             <li><span>Deadlift (start with bar + 20 kg)</span><span>3 × 5</span></li>
             <li><span>Bulgarian split squat</span><span>3 × 8/leg</span></li>
-            <li><span>Hip thrust</span><span>3 × 10</span></li>
+            <li><span>Glute bridge</span><span>3 × 12</span></li>
             <li><span>Leg extension</span><span>2 × 15</span></li>
-            <li><span>Hanging knee raise</span><span>3 × 10</span></li>
+            <li><span>Bent-knee hip raise</span><span>3 × 10</span></li>
             <li><span>Cable crunch</span><span>3 × 12</span></li>
           </ul>
           <p class="fin"><b>Engine:</b> bike sprints, 8 rounds of 20 s all-out + 40 s easy. If you played football that week, skip the sprints. Football is your engine.</p>
@@ -650,7 +700,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
             <li><span>Bench press</span><span>3 × 6–10</span></li>
             <li><span>Lat pulldown</span><span>3 × 8–12</span></li>
             <li><span>Seated DB shoulder press</span><span>2 × 10</span></li>
-            <li><span>Plank</span><span>3 × 40 s</span></li>
+            <li><span>Side plank</span><span>3 × 30 s/side</span></li>
           </ul>
           <p class="fin"><b>Finisher:</b> incline walk 10 min.</p>
         </article>
@@ -662,7 +712,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
             <li><span>Seated cable row</span><span>3 × 8–12</span></li>
             <li><span>Assisted pull-up</span><span>2 × 8</span></li>
             <li><span>Lateral raise</span><span>2 × 15</span></li>
-            <li><span>Hanging knee raise</span><span>3 × 10</span></li>
+            <li><span>Bent-knee hip raise</span><span>3 × 10</span></li>
           </ul>
           <p class="fin"><b>Finisher:</b> bike sprints 6 × 20 s.</p>
         </article>
@@ -671,7 +721,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
           <ul class="ex">
             <li><span>Leg press</span><span>3 × 10–12</span></li>
             <li><span>Push-ups or DB floor press</span><span>3 × max</span></li>
-            <li><span>Chest-supported row</span><span>3 × 10</span></li>
+            <li><span>T-bar row</span><span>3 × 10</span></li>
             <li><span>Walking lunges</span><span>2 × 10/leg</span></li>
             <li><span>Superset: curl + pushdown</span><span>2 × 12</span></li>
           </ul>
@@ -701,12 +751,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
           <div class="sess-top"><h3>Home 20 · dumbbells</h3><span class="tag">20 min · living room</span></div>
           <p class="muted" style="font-size:14px">4 rounds, 40 s work / 20 s rest, no break between moves.</p>
           <ul class="ex">
-            <li><span>Goblet squat</span><span>40 s</span></li>
+            <li><span>Dumbbell squat</span><span>40 s</span></li>
             <li><span>Push-ups (knees if needed)</span><span>40 s</span></li>
-            <li><span>One-arm DB row</span><span>40 s</span></li>
-            <li><span>DB Romanian deadlift</span><span>40 s</span></li>
+            <li><span>Single-arm DB row</span><span>40 s</span></li>
+            <li><span>Dumbbell deadlift</span><span>40 s</span></li>
             <li><span>DB shoulder press</span><span>40 s</span></li>
-            <li><span>Plank</span><span>40 s</span></li>
+            <li><span>Side plank</span><span>40 s</span></li>
           </ul>
         </article>
         <article class="sticker sess">
@@ -736,7 +786,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Big gym, lots of machines</p><h2>Exercise menu: build your own 5</h2></div>
-      <p>Pick a day, then tap 5 exercises: 1 main lift, 2 secondary, 2 isolation. Keep the main lift the same for 4 weeks so you can see it go up. Swap the other 4 every week to keep things fresh. Your picks are saved in this browser.</p>
+      <p>Pick a day, then tap the pictures to choose 5 exercises: 1 main lift, 2 secondary, 2 isolation. Tap <b>How to</b> on any card for steps and common mistakes. Keep the main lift the same for 4 weeks so you can see it go up, and swap the other 4 every week. Your picks are saved in this browser.</p>
     </div>
     <div class="tabs" role="tablist" aria-label="Training day" id="xm-tabs"></div>
     <div class="xm-grid">
@@ -1111,13 +1161,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
   </div>
 </div>
 
+<dialog id="exdlg" aria-labelledby="exdlg-title">
+  <button type="button" class="dlg-x" id="exdlg-close" aria-label="Close">✕</button>
+  <div class="dlg-grid" id="exdlg-body"></div>
+</dialog>
+
 <footer>
   <div class="wrap">
     <span>Project 78 · built for a 24-year-old IT engineer, 5′11″, 85 kg, 3–11 PM shift, UAE.</span>
     <span>General fitness guidance, not medical advice. Check blood results and any pain with a doctor.</span>
+    <span>Exercise drawings and steps: <a href="https://github.com/everkinetic/data" target="_blank" rel="noopener">Everkinetic</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Animation and arrows added by Project 78.</span>
   </div>
 </footer>
 
+<script src="ex-data.js"></script>
 <script>
 /* DAILY LOG — add one object per day. k = kcal, p = protein (g), est = amount guessed. */
 var TARGET={k:2150,p:150};
@@ -1268,69 +1325,90 @@ var LOG=[
   window.addEventListener('hashchange',route);route();
 })();
 
-/* EXERCISE MENU — A main (pick 1), B secondary (pick 2), C isolation (pick 2), E engine (pick 1, lower day only) */
-var MENU={
-  push:{name:'Push',sub:'Chest · Shoulder · Tri',sets:{A:'4 × 6–10',B:'3 × 8–12',C:'3 × 12–15'},
-    fin:'Finisher: incline walk 15 min, 10–12% at 5 km/h.',
-    A:['Barbell bench press','Incline barbell bench','Dumbbell bench press','Smith machine incline press','Hammer Strength chest press','Seated machine chest press','Standing overhead press'],
-    B:['Incline dumbbell press','Hammer Strength incline press','Decline press machine','Seated DB shoulder press','Machine shoulder press','Landmine press','Assisted dip machine','Arnold press'],
-    C:['Pec deck fly','Cable crossover (high to low)','Low-to-high cable fly','Incline DB fly','DB lateral raise','Cable lateral raise','Machine lateral raise','Rope cable pushdown','Overhead cable triceps ext.','EZ-bar skull crusher','Triceps dip machine','Cable kickback'],
-    hint:'Isolation tip: pick 1 shoulder + 1 triceps.',
-    def:{A:['Barbell bench press'],B:['Incline dumbbell press','Seated DB shoulder press'],C:['DB lateral raise','Rope cable pushdown']}},
-  pull:{name:'Pull',sub:'Back · Bi · Rear delt',sets:{A:'4 × 6–10',B:'3 × 8–12',C:'3 × 10–15'},
-    fin:'Finisher: dead hang 3 × max, then incline walk 15 min.',
-    A:['Assisted pull-up machine','Lat pulldown (wide)','Barbell row','Chest-supported T-bar row','Hammer Strength high row','Seated cable row (V-grip)'],
-    B:['Neutral-grip pulldown','Single-arm DB row','Hammer Strength low row','Chest-supported machine row','Single-arm cable pulldown','Meadows row (landmine)','Straight-arm cable pulldown','Wide-grip cable row'],
-    C:['Face pull','Rear-delt pec deck','Reverse cable fly','DB curl','EZ-bar curl','Preacher curl machine','Incline DB curl','Hammer curl','Bayesian cable curl','DB shrug'],
-    hint:'Isolation tip: pick 1 rear delt + 1 biceps.',
-    def:{A:['Assisted pull-up machine'],B:['Neutral-grip pulldown','Wide-grip cable row'],C:['Face pull','DB curl']}},
-  legs:{name:'Legs + core',sub:'Quads · Hams · Abs',sets:{A:'4 × 6–10',B:'3 × 8–12',C:'3 × 12–15'},
-    fin:'Finisher: 10 min easy bike, only if your legs still have something left.',
-    A:['Barbell back squat','Hack squat machine','Smith machine squat','Pendulum squat','Belt squat','Goblet squat (heavy DB)'],
-    B:['Leg press','Romanian deadlift','Walking lunges','Bulgarian split squat','Smith reverse lunge','Box step-ups','Single-leg leg press'],
-    C:['Leg extension','Lying leg curl','Seated leg curl','Hip adductor machine','Hip abductor machine','Standing calf raise','Seated calf raise','Plank','Cable crunch','Hanging knee raise','Ab wheel','Pallof press'],
-    hint:'Isolation tip: pick 1 leg + 1 core.',
-    def:{A:['Barbell back squat'],B:['Romanian deadlift','Leg press'],C:['Lying leg curl','Plank']}},
-  upper:{name:'Upper',sub:'Mixed push + pull',sets:{A:'3 × 8–10',B:'3 × 8–12',C:'2–3 × 12–15'},
-    fin:'Finisher: run intervals 10 min, alternating 1 min at 10 km/h and 1 min at 6 km/h.',
-    A:['Incline dumbbell press','Seated machine chest press','Smith machine incline press','Chest-supported T-bar row','Lat pulldown (wide)','Hammer Strength iso-lateral row'],
-    B:['Arnold press','Machine shoulder press','Pull-up negatives (week 5+)','Wide-grip cable row','Push-ups (max reps)','Assisted dip machine','Single-arm DB row'],
-    C:['Superset: curl + pushdown','Cable lateral raise','Pec deck fly','Face pull','Preacher curl machine','Overhead cable triceps ext.','Reverse pec deck','Farmer’s carry'],
-    hint:'Balance tip: if the main lift is a press, make one secondary a row or pulldown.',
-    def:{A:['Incline dumbbell press'],B:['Single-arm DB row','Arnold press'],C:['Superset: curl + pushdown','Cable lateral raise']}},
-  lower:{name:'Lower + engine',sub:'Hinge · Glutes · Stamina',sets:{A:'3 × 5–8',B:'3 × 8–12',C:'3 × 10–15'},
-    fin:'',
-    A:['Conventional deadlift','Trap-bar deadlift','Sumo deadlift','Romanian deadlift','Hip thrust machine','Belt squat'],
-    B:['Bulgarian split squat','Barbell hip thrust','Leg press (feet high)','45° back extension','Cable pull-through','DB walking lunges','Single-leg RDL','Reverse hyper'],
-    C:['Seated leg curl','Assisted Nordic curl','Glute kickback machine','Leg extension','Hip adductor machine','Standing calf raise','Hanging knee raise','Cable crunch','Decline sit-up','Dead bug'],
-    E:['Bike sprints 8 × 20 s','Rower 4 × 500 m','Ski erg 10 × 30 s','Sled push 6 lengths','Air bike 10 × 15 s','Stair climber 10 min','Battle ropes 8 × 30 s','KB swings EMOM 10 min','Football this week (skip)'],
-    hint:'Isolation tip: pick 1 hamstring/glute + 1 core.',
-    def:{A:['Conventional deadlift'],B:['Bulgarian split squat','Barbell hip thrust'],C:['Hanging knee raise','Cable crunch'],E:['Bike sprints 8 × 20 s']}}
-};
+/* EXERCISE MENU + HOW-TO — data (MENU, EXDB, EXALIAS) lives in ex-data.js.
+   A main (pick 1), B secondary (pick 2), C isolation (pick 2), E engine (pick 1, lower day only) */
+function exAnim(n,cls){
+  var x=window.EXDB&&EXDB[n];if(!x)return '';
+  var w=x.vb[0],h=x.vb[1],src='img/ek/'+n+'-',arr='';
+  if(x.arrow){
+    var a=x.arrow,dx=a[2]-a[0],dy=a[3]-a[1],L=Math.sqrt(dx*dx+dy*dy),deg=Math.atan2(dy,dx)*180/Math.PI;
+    var s=w*.018,hl=w*.085,hw=w*.055,sw=Math.max(2,w*.012);
+    var p='M0 '+(-s)+'H'+(L-hl)+'V'+(-hw)+'L'+L+' 0L'+(L-hl)+' '+hw+'V'+s+'H0Z';
+    arr='<svg class="arw" viewBox="0 0 '+w+' '+h+'" aria-hidden="true">'+
+      '<path class="fwd" d="'+p+'" stroke-width="'+sw+'" transform="translate('+a[0]+' '+a[1]+') rotate('+deg+')"/>'+
+      '<path class="bck" d="'+p+'" stroke-width="'+sw+'" transform="translate('+a[2]+' '+a[3]+') rotate('+(deg+180)+')"/></svg>';
+  }
+  return '<span class="anim '+(cls||'')+'" style="aspect-ratio:'+w+'/'+h+'">'+
+    '<img src="'+src+'0.'+x.f+'" alt="" loading="lazy"><img class="b" src="'+src+'1.'+x.f+'" alt="" loading="lazy">'+arr+
+    '<span class="fr s">START</span><span class="fr e">END</span></span>';
+}
+function exLabel(n){
+  for(var d in MENU)for(var c in MENU[d]){var L=MENU[d][c];if(Array.isArray(L))for(var i=0;i<L.length;i++)if(Array.isArray(L[i])&&L[i][1]===n)return L[i][0];}
+  for(var k in EXALIAS)if(EXALIAS[k]===n)return k;return null;
+}
+function exEsc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+function exOpen(n,label){
+  var x=EXDB[n],dlg=document.getElementById('exdlg');if(!x||!dlg)return;
+  label=label||exLabel(n);
+  var cap=function(t){return t.charAt(0).toUpperCase()+t.slice(1);};
+  document.getElementById('exdlg-body').innerHTML=
+    '<div class="dlg-art">'+exAnim(n,'big')+'<p class="muted dlg-note">Orange arrow = direction of the movement. Start → end, then back.</p></div>'+
+    '<div class="dlg-txt"><p class="eyebrow">How to do it</p><h2 id="exdlg-title">'+exEsc(label||x.t)+'</h2>'+
+    (label&&label!==x.t?'<p class="muted" style="font-size:13.5px">Also called: '+exEsc(x.t)+'</p>':'')+
+    '<div class="pills" style="margin-top:4px">'+x.mus.map(function(m){return '<span class="pill mus">'+exEsc(cap(m))+'</span>';}).join('')+
+      x.mus2.map(function(m){return '<span class="pill">'+exEsc(cap(m))+'</span>';}).join('')+
+      x.eq.map(function(e){return '<span class="pill eq">'+exEsc(cap(e))+'</span>';}).join('')+'</div>'+
+    '<h3>Steps</h3><ol class="dlg-steps">'+x.steps.map(function(s){return '<li>'+exEsc(s)+'</li>';}).join('')+'</ol>'+
+    (x.tips.length?'<h3>Tips</h3><ul class="dlg-steps">'+x.tips.map(function(s){return '<li>'+exEsc(s)+'</li>';}).join('')+'</ul>':'')+
+    '<h3 class="oops-h">Common mistakes</h3><ul class="dlg-oops">'+x.oops.map(function(s){return '<li>'+exEsc(s)+'</li>';}).join('')+'</ul>'+
+    '<p class="muted dlg-credit">Drawing and steps: <a href="https://github.com/everkinetic/data" target="_blank" rel="noopener">Everkinetic</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Animation and arrows added.</p></div>';
+  if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
+}
+(function(){
+  var dlg=document.getElementById('exdlg');
+  document.getElementById('exdlg-close').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+  // session cards: exercise names open the how-to
+  document.querySelectorAll('.sess .ex li > span:first-child').forEach(function(sp){
+    var n=window.EXALIAS&&EXALIAS[sp.textContent.trim()];if(!n||!EXDB[n])return;
+    var b=document.createElement('button');b.type='button';b.className='exlink';b.dataset.n=n;b.innerHTML=exEsc(sp.textContent)+'<span class="cam" aria-hidden="true">▶</span>';
+    sp.textContent='';sp.appendChild(b);
+  });
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-open]');if(b)exOpen(b.dataset.open,b.dataset.label);});
+  document.querySelectorAll('.exlink').forEach(function(b){b.addEventListener('click',function(){exOpen(b.dataset.n,b.textContent.replace('▶','').trim());});});  if(location.hash.indexOf('#ex=')===0)exOpen(decodeURIComponent(location.hash.slice(4)));
+})();
 (function(){
   var LIM={A:1,B:2,C:2,E:1},LBL={A:'Main lift',B:'Secondary',C:'Isolation',E:'Engine'};
-  var KEY='p78-menu',state={},cur='push';
+  var KEY='p78-menu-v2',state={},cur='push';
   try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
   function clone(o){return JSON.parse(JSON.stringify(o));}
   function picks(d){if(!state[d])state[d]=clone(MENU[d].def);return state[d];}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
   function cats(d){return MENU[d].E?['A','B','C','E']:['A','B','C'];}
-  function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  function exOf(d,c,label){var r=(MENU[d][c]||[]).filter(function(it){return it[0]===label;})[0];return r?r[1]:null;}
   var tabsEl=document.getElementById('xm-tabs'),colsEl=document.getElementById('xm-cols');
   tabsEl.innerHTML=Object.keys(MENU).map(function(d){return '<button class="tab" role="tab" type="button" data-d="'+d+'" aria-selected="'+(d===cur)+'">'+MENU[d].name+'</button>';}).join('');
   function render(){
     var m=MENU[cur],p=picks(cur);
     tabsEl.querySelectorAll('.tab').forEach(function(b){b.setAttribute('aria-selected',b.dataset.d===cur?'true':'false');});
-    colsEl.innerHTML=cats(cur).filter(function(c){return c!=='E';}).concat(m.E?['E']:[]).map(function(c){
+    colsEl.innerHTML=cats(cur).map(function(c){
       var sets=c==='E'?'8–12 min':m.sets[c];
+      var items=m[c].map(function(it){
+        var on=(p[c]||[]).indexOf(it[0])>-1,lab=exEsc(it[0]);
+        if(!it[1])return '<button type="button" class="xm-it" data-c="'+c+'" data-it="'+lab+'" aria-pressed="'+on+'">'+lab+'</button>';
+        return '<div class="xm-card'+(on?' on':'')+'"><button type="button" class="xm-pick-b" data-c="'+c+'" data-it="'+lab+'" aria-pressed="'+on+'">'+exAnim(it[1],'thumb')+'<span class="xm-lab">'+lab+'</span></button>'+
+          '<button type="button" class="xm-info" data-open="'+it[1]+'" data-label="'+lab+'" aria-label="How to do '+lab+'">How to</button></div>';
+      }).join('');
       return '<div class="sticker xm-col '+c+'"><h3><span class="xm-badge">'+c+'</span>'+LBL[c]+'</h3>'+
         '<span class="rule-l">Pick '+LIM[c]+' · '+sets+'</span>'+
         (c==='C'?'<span class="muted" style="font-size:13px">'+m.hint+'</span>':'')+
-        '<div class="xm-items">'+m[c].map(function(it){var on=(p[c]||[]).indexOf(it)>-1;return '<button type="button" class="xm-it" data-c="'+c+'" data-it="'+esc(it)+'" aria-pressed="'+on+'">'+esc(it)+'</button>';}).join('')+'</div></div>';
+        '<div class="'+(c==='E'?'xm-items':'xm-cards')+'">'+items+'</div></div>';
     }).join('');
     var list='',n=0;
     ['A','B','C'].forEach(function(c){
-      for(var i=0;i<LIM[c];i++){var it=(p[c]||[])[i];if(it){n++;list+='<li>'+esc(it)+'<span>'+LBL[c]+' · '+m.sets[c]+'</span></li>';}else list+='<li class="empty">Pick a '+LBL[c].toLowerCase()+'</li>';}
+      for(var i=0;i<LIM[c];i++){var it=(p[c]||[])[i];
+        if(it){n++;var ex=exOf(cur,c,it);list+='<li><button type="button" class="exlink" '+(ex?'data-open="'+ex+'" data-label="'+exEsc(it)+'"':'')+'>'+exEsc(it)+(ex?'<span class="cam" aria-hidden="true">▶</span>':'')+'</button><span>'+LBL[c]+' · '+m.sets[c]+'</span></li>';}
+        else list+='<li class="empty">Pick a '+LBL[c].toLowerCase()+'</li>';}
     });
     document.getElementById('xm-list').innerHTML=list;
     document.getElementById('xm-count').textContent=n+'/5';
@@ -1339,13 +1417,13 @@ var MENU={
   }
   tabsEl.addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;cur=b.dataset.d;render();});
   colsEl.addEventListener('click',function(e){
-    var b=e.target.closest('.xm-it');if(!b)return;
-    var c=b.dataset.c,it=b.dataset.it,p=picks(cur),arr=p[c]||(p[c]=[]),i=arr.indexOf(it);
+    var b=e.target.closest('.xm-it,.xm-pick-b');if(!b)return;
+    var c=b.dataset.c,it=b.dataset.it.replace(/&amp;/g,'&'),p=picks(cur),arr=p[c]||(p[c]=[]),i=arr.indexOf(it);
     if(i>-1)arr.splice(i,1);else{arr.push(it);while(arr.length>LIM[c])arr.shift();}
     save();render();
   });
   document.getElementById('xm-shuffle').addEventListener('click',function(){
-    var p={};cats(cur).forEach(function(c){var pool=MENU[cur][c].slice();p[c]=[];for(var i=0;i<LIM[c];i++)p[c].push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);});
+    var p={};cats(cur).forEach(function(c){var pool=MENU[cur][c].map(function(x){return x[0];});p[c]=[];for(var i=0;i<LIM[c];i++)p[c].push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);});
     state[cur]=p;save();render();
   });
   document.getElementById('xm-default').addEventListener('click',function(){state[cur]=clone(MENU[cur].def);save();render();});
