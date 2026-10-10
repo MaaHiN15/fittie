@@ -284,32 +284,32 @@ section{padding-block:clamp(40px,6vw,80px)}
 /* exercise drawings */
 .anim{position:relative;display:block;width:100%;background:#fff;border-radius:10px;overflow:hidden}
 .anim img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.anim .b{animation:exswap 2.6s ease-in-out infinite}
+.anim .b,.anim .fr,.anim .arw path{transition:opacity .35s ease}
+.anim .b{opacity:0}
+.ex-end .anim .b{opacity:1}
 .anim .arw{position:absolute;inset:0;width:100%;height:100%}
 .anim .arw path{fill:var(--tomato);stroke:#fff;paint-order:stroke;stroke-linejoin:round}
-.anim .arw .fwd{animation:exfwd 2.6s ease-in-out infinite}
-.anim .arw .bck{animation:exbck 2.6s ease-in-out infinite}
+.anim .arw .bck{opacity:0}
+.ex-end .anim .arw .fwd{opacity:0}
+.ex-end .anim .arw .bck{opacity:1}
 .anim .fr{position:absolute;left:6px;top:6px;min-width:46px;text-align:center;font:800 10.5px/1 var(--f-mono);letter-spacing:.06em;color:#fff;border-radius:5px;padding:3px 6px;background:#1A1D3A}
-.anim .fr.s{animation:exswapR 2.6s ease-in-out infinite}
-.anim .fr.e{background:var(--tomato);animation:exswap 2.6s ease-in-out infinite}
+.anim .fr.e{background:var(--tomato);opacity:0}
+.ex-end .anim .fr.s{opacity:0}
+.ex-end .anim .fr.e{opacity:1}
 .anim.thumb{aspect-ratio:1/1!important}
 .anim.big .fr{font-size:13px;left:10px;top:10px;padding:4px 8px;min-width:58px}
-@keyframes exswap{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
-@keyframes exswapR{0%,42%{opacity:1}50%,92%{opacity:0}100%{opacity:1}}
-@keyframes exfwd{0%,40%{opacity:1}46%,96%{opacity:0}100%{opacity:1}}
-@keyframes exbck{0%,46%{opacity:0}50%,90%{opacity:1}96%,100%{opacity:0}}
 .xm-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
 .xm-card{position:relative;border:2px solid var(--line);border-radius:12px;background:var(--surface);display:grid;transition:transform .12s}
 .xm-card:hover{transform:translateY(-2px)}
-.xm-pick-b{font:inherit;color:var(--ink);background:none;border:0;padding:6px 6px 32px;cursor:pointer;display:grid;gap:6px;text-align:left;border-radius:10px}
+.xm-card{font:inherit;color:var(--ink);padding:6px 6px 10px;cursor:pointer;gap:6px;text-align:left;align-content:start}
 .xm-lab{font-size:13px;font-weight:700;line-height:1.25}
 .xm-card.on{box-shadow:3px 3px 0 var(--line)}
 .xm-col.A .xm-card.on{background:color-mix(in srgb,var(--tomato) 30%,var(--surface))}
 .xm-col.B .xm-card.on{background:color-mix(in srgb,var(--turmeric) 40%,var(--surface))}
 .xm-col.C .xm-card.on{background:color-mix(in srgb,var(--teal) 28%,var(--surface))}
-.xm-card.on .xm-lab::before{content:"✓ "}
-.xm-info{position:absolute;left:6px;bottom:6px;font:700 11.5px var(--f-body);border:1.5px solid var(--line);border-radius:999px;padding:2px 9px;background:var(--surface);color:var(--ink);cursor:pointer}
-.xm-info:hover{background:var(--turmeric);color:var(--on-accent)}
+.xm-card .tick{position:absolute;right:6px;top:6px;z-index:2;width:24px;height:24px;border-radius:50%;border:2px solid var(--line);background:var(--leaf);color:var(--on-accent);font-weight:900;font-size:13px;display:grid;place-items:center}
+.dlg-pick{font:inherit;font-weight:800;font-size:15px;cursor:pointer;border:2.5px solid var(--line);border-radius:999px;padding:10px 18px;background:var(--turmeric);color:var(--on-accent);box-shadow:3px 3px 0 var(--line);justify-self:start}
+.dlg-pick.on{background:var(--leaf)}
 .exlink{font:inherit;color:inherit;background:none;border:0;padding:0;text-align:left;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--tomato);text-underline-offset:3px}
 .exlink:hover{color:var(--tomato)}
 .exlink .cam{font-size:9px;color:var(--tomato);margin-left:5px;vertical-align:2px;text-decoration:none;display:inline-block}
@@ -786,7 +786,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Big gym, lots of machines</p><h2>Exercise menu: build your own 5</h2></div>
-      <p>Pick a day, then tap the pictures to choose 5 exercises: 1 main lift, 2 secondary, 2 isolation. Tap <b>How to</b> on any card for steps and common mistakes. Keep the main lift the same for 4 weeks so you can see it go up, and swap the other 4 every week. Your picks are saved in this browser.</p>
+      <p>Pick a day and tap any card to see it large, with steps and common mistakes. Tap <b>Add to my 5</b> there to build your session: 1 main lift, 2 secondary, 2 isolation. Keep the main lift the same for 4 weeks so you can see it go up, and swap the other 4 every week. Your picks are saved in this browser.</p>
     </div>
     <div class="tabs" role="tablist" aria-label="Training day" id="xm-tabs"></div>
     <div class="xm-grid">
@@ -1342,12 +1342,13 @@ function exAnim(n,cls){
     '<img src="'+src+'0.'+x.f+'" alt="" loading="lazy"><img class="b" src="'+src+'1.'+x.f+'" alt="" loading="lazy">'+arr+
     '<span class="fr s">START</span><span class="fr e">END</span></span>';
 }
+(function(){var t=setInterval(function(){document.documentElement.classList.toggle('ex-end');},1400);})();
 function exLabel(n){
   for(var d in MENU)for(var c in MENU[d]){var L=MENU[d][c];if(Array.isArray(L))for(var i=0;i<L.length;i++)if(Array.isArray(L[i])&&L[i][1]===n)return L[i][0];}
   for(var k in EXALIAS)if(EXALIAS[k]===n)return k;return null;
 }
 function exEsc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
-function exOpen(n,label){
+function exOpen(n,label,pick){
   var x=EXDB[n],dlg=document.getElementById('exdlg');if(!x||!dlg)return;
   label=label||exLabel(n);
   var cap=function(t){return t.charAt(0).toUpperCase()+t.slice(1);};
@@ -1358,11 +1359,14 @@ function exOpen(n,label){
     '<div class="pills" style="margin-top:4px">'+x.mus.map(function(m){return '<span class="pill mus">'+exEsc(cap(m))+'</span>';}).join('')+
       x.mus2.map(function(m){return '<span class="pill">'+exEsc(cap(m))+'</span>';}).join('')+
       x.eq.map(function(e){return '<span class="pill eq">'+exEsc(cap(e))+'</span>';}).join('')+'</div>'+
+    (pick?'<button type="button" class="dlg-pick'+(pick.on?' on':'')+'" id="dlg-pick">'+(pick.on?'✓ In your 5 · tap to remove':'+ Add to my 5 ('+pick.slot+')')+'</button>':'')+
     '<h3>Steps</h3><ol class="dlg-steps">'+x.steps.map(function(s){return '<li>'+exEsc(s)+'</li>';}).join('')+'</ol>'+
     (x.tips.length?'<h3>Tips</h3><ul class="dlg-steps">'+x.tips.map(function(s){return '<li>'+exEsc(s)+'</li>';}).join('')+'</ul>':'')+
     '<h3 class="oops-h">Common mistakes</h3><ul class="dlg-oops">'+x.oops.map(function(s){return '<li>'+exEsc(s)+'</li>';}).join('')+'</ul>'+
     '<p class="muted dlg-credit">Drawing and steps: <a href="https://github.com/everkinetic/data" target="_blank" rel="noopener">Everkinetic</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Animation and arrows added.</p></div>';
-  if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
+  var pb=document.getElementById('dlg-pick');
+  if(pb)pb.addEventListener('click',function(){var on=window.xmToggle(pick.c,pick.it);exOpen(n,label,{c:pick.c,it:pick.it,slot:pick.slot,on:on});});
+  if(!dlg.open){if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');}
 }
 (function(){
   var dlg=document.getElementById('exdlg');
@@ -1396,8 +1400,7 @@ function exOpen(n,label){
       var items=m[c].map(function(it){
         var on=(p[c]||[]).indexOf(it[0])>-1,lab=exEsc(it[0]);
         if(!it[1])return '<button type="button" class="xm-it" data-c="'+c+'" data-it="'+lab+'" aria-pressed="'+on+'">'+lab+'</button>';
-        return '<div class="xm-card'+(on?' on':'')+'"><button type="button" class="xm-pick-b" data-c="'+c+'" data-it="'+lab+'" aria-pressed="'+on+'">'+exAnim(it[1],'thumb')+'<span class="xm-lab">'+lab+'</span></button>'+
-          '<button type="button" class="xm-info" data-open="'+it[1]+'" data-label="'+lab+'" aria-label="How to do '+lab+'">How to</button></div>';
+        return '<button type="button" class="xm-card'+(on?' on':'')+'" data-ex="'+it[1]+'" data-c="'+c+'" data-it="'+lab+'" aria-label="'+lab+(on?', picked':'')+'. Open details">'+(on?'<span class="tick" aria-hidden="true">✓</span>':'')+exAnim(it[1],'thumb')+'<span class="xm-lab">'+lab+'</span></button>';
       }).join('');
       return '<div class="sticker xm-col '+c+'"><h3><span class="xm-badge">'+c+'</span>'+LBL[c]+'</h3>'+
         '<span class="rule-l">Pick '+LIM[c]+' · '+sets+'</span>'+
@@ -1417,11 +1420,15 @@ function exOpen(n,label){
   }
   tabsEl.addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;cur=b.dataset.d;render();});
   colsEl.addEventListener('click',function(e){
-    var b=e.target.closest('.xm-it,.xm-pick-b');if(!b)return;
-    var c=b.dataset.c,it=b.dataset.it.replace(/&amp;/g,'&'),p=picks(cur),arr=p[c]||(p[c]=[]),i=arr.indexOf(it);
-    if(i>-1)arr.splice(i,1);else{arr.push(it);while(arr.length>LIM[c])arr.shift();}
-    save();render();
+    var card=e.target.closest('.xm-card');
+    if(card){var c0=card.dataset.c,it0=card.dataset.it;exOpen(card.dataset.ex,it0,{c:c0,it:it0,slot:LBL[c0].toLowerCase(),on:(picks(cur)[c0]||[]).indexOf(it0)>-1});return;}
+    var b=e.target.closest('.xm-it');if(!b)return;
+    toggle(b.dataset.c,b.dataset.it);
   });
+  function toggle(c,it){var p=picks(cur),arr=p[c]||(p[c]=[]),i=arr.indexOf(it);
+    if(i>-1)arr.splice(i,1);else{arr.push(it);while(arr.length>LIM[c])arr.shift();}
+    save();render();return i<0;}
+  window.xmToggle=toggle;
   document.getElementById('xm-shuffle').addEventListener('click',function(){
     var p={};cats(cur).forEach(function(c){var pool=MENU[cur][c].map(function(x){return x[0];});p[c]=[];for(var i=0;i<LIM[c];i++)p[c].push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);});
     state[cur]=p;save();render();
