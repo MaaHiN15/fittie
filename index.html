@@ -1153,21 +1153,21 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
       <div class="sticker" style="background:color-mix(in srgb,var(--leaf) 16%,var(--surface))">
         <h3>Going well</h3>
         <ul class="side-list" style="margin-top:8px">
-          <li>Week 1: 4 gym sessions + 1 football. That's a full green week.</li>
-          <li>Water went from 1 L to 2 L on Thu and Fri</li>
-          <li>Friday: ~200 g protein plus a 4 km walk after dinner</li>
-          <li>Zero junk, oily or creamy food all week</li>
-          <li>Thu and Fri followed the plan days (legs, then upper)</li>
+          <li>Week 1 finished with 5 gym sessions + football. Week 2 is Push → Pull → Legs in order, with no gaps.</li>
+          <li>Banana, whey and creatine on every gym day since Monday</li>
+          <li>Sleep is steady: 10:00 to 1:30 every day, about 8.5 hours</li>
+          <li>Chicken days hit 130–200 g protein</li>
+          <li>Water holding at 2 L, double where you started</li>
         </ul>
       </div>
       <div class="sticker" style="background:color-mix(in srgb,var(--tomato) 13%,var(--surface))">
         <h3>Fix next</h3>
         <ul class="side-list" style="margin-top:8px">
-          <li><b>Protein swings from 73 g to 200 g.</b> Days without chicken are the low ones. Aim for one chicken, paneer or curd portion at every main meal so every day lands at 130–160 g.</li>
-          <li><b>Water: 2 L, target 3.5 L.</b> Go to 2.5 L in week 2.</li>
-          <li><b>Juice is showing up often.</b> A large orange juice is ~180 kcal. Eat 2 oranges instead.</li>
-          <li><b>Start the 11:30 PM small meal.</b> 200 g Greek yogurt adds ~20 g protein at ~150 kcal and stops late shawarma cravings.</li>
-          <li><b>Week 2: build sessions from the exercise menu.</b> Pick 5 per day and keep the main lift the same for 4 weeks.</li>
+          <li><b>A treat most evenings.</b> Shawarma roll, mango lassi + masala dosa, chicken 65, burger, popcorn, parotta: 5 of the last 6 days had one. Keep it to 2 a week.</li>
+          <li><b>Chapati + egg days stay under 110 g protein.</b> On those days, add a 2nd whey scoop at night or a chicken/paneer portion at dinner.</li>
+          <li><b>Don't skip dinner or undereat on rest days.</b> Tuesday (~1,470) and Sunday (~1,525) were too low, and big treat days followed.</li>
+          <li><b>Water: go to 2.5 L</b> this week. You've been at 2 L for 8 days.</li>
+          <li><b>Start weighing in:</b> 3 mornings a week after the toilet. The weight line in your template is still empty.</li>
         </ul>
       </div>
       <div class="sticker">
@@ -1276,7 +1276,75 @@ var LOG=[
           {n:'Home chicken',q:'250 g',k:450,p:69},
           {n:'Chapati',q:'2',k:200,p:6},
           {n:'Orange juice, no sugar',q:'large, ~400 ml',k:180,p:3,est:true}],
-   coach:'Protein hit 200 g, your best day. Calories went ~330 over because you ate 4 meals with chicken twice. The 4 km walk cancels most of it. On double-chicken days, drop the dosa or the khichdi.'}
+   coach:'Protein hit 200 g, your best day. Calories went ~330 over because you ate 4 meals with chicken twice. The 4 km walk cancels most of it. On double-chicken days, drop the dosa or the khichdi.'},
+  {date:'2026-10-10',label:'Day 6',type:['gym'],water:2,
+   work:'Gym · Lower + engine · wake 10:00, sleep 1:30',
+   items:[{n:'Low-sugar tea',q:'pre-gym',k:45,p:2},
+          {n:'Whey shake',q:'after gym',k:120,p:23},
+          {n:'Kerala veg meals',q:'full plate: rice, sambar, sides',k:900,p:20,est:true},
+          {n:'Wheat parotta',q:'2',k:500,p:10,est:true},
+          {n:'Paneer butter masala',q:'small portion',k:150,p:5,est:true},
+          {n:'Chicken masala',q:'~150 g, a bit oily',k:300,p:25,est:true},
+          {n:'Apple juice',q:'1 glass, a little sugar',k:130,p:0,est:true}],
+   coach:'Calories on target, but protein only ~85 g. Kerala meals are mostly rice, and parotta with butter masala is the oily combo. On meals days, add 3 eggs or a chicken box.'},
+  {date:'2026-10-11',label:'Day 7',type:['rest'],water:2,
+   work:'Rest day · go-karting · wake 10:00, sleep 1:30',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Home chicken',q:'200 g',k:360,p:55},
+          {n:'Sweet potato',q:'~150 g',k:130,p:2,est:true},
+          {n:'Rice',q:'~150 g cooked',k:195,p:4,est:true},
+          {n:'Home chicken',q:'250 g',k:450,p:69},
+          {n:'Chapati',q:'3',k:300,p:9}],
+   coach:'Very clean food and ~143 g protein. But only ~1,525 kcal, which is too low even for a rest day. Eating this little on Sunday usually leads to a junk-food binge later in the week. Add curd, fruit or a scoop of whey.'},
+  {date:'2026-10-12',label:'Day 8',type:['gym'],water:2,
+   work:'Gym · Push · wake 10:00, sleep 1:30',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Banana',q:'pre-gym',k:105,p:1},
+          {n:'Whey shake',q:'after gym',k:120,p:23},
+          {n:'Creatine',q:'5 g',k:0,p:0},
+          {n:'Home chicken',q:'250 g',k:450,p:69},
+          {n:'Dosa',q:'2',k:380,p:9,est:true},
+          {n:'Chapati',q:'3',k:300,p:9},
+          {n:'Aloo sabji',q:'1 portion',k:200,p:3,est:true},
+          {n:'Chutney',q:'2 tbsp',k:80,p:1,est:true},
+          {n:'Eggs',q:'3',k:255,p:19}],
+   coach:'Close to a perfect day: ~1,980 kcal and ~138 g protein, with the full pre/post-gym routine and creatine.'},
+  {date:'2026-10-13',label:'Day 9',type:['gym'],water:2,
+   work:'Gym · Pull · wake 10:00, sleep 1:30',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Banana',q:'pre-gym',k:105,p:1},
+          {n:'Whey shake',q:'after gym',k:120,p:23},
+          {n:'Creatine',q:'5 g',k:0,p:0},
+          {n:'Chapati',q:'3',k:300,p:9},
+          {n:'Eggs',q:'3',k:255,p:19},
+          {n:'Evening meal',q:'skipped',unk:true},
+          {n:'Subway chicken shawarma',q:'8-inch (6 + 2), honey oat bread',k:600,p:37,est:true}],
+   coach:'Evening meal skipped, so only ~1,470 kcal and ~93 g protein on a training day. No football that night either. Even a quick chicken box or dal + 3 eggs at the office fixes this.'},
+  {date:'2026-10-14',label:'Day 10',type:['gym'],water:2,
+   work:'Gym · Legs · wake 10:00, sleep 1:30',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Banana',q:'pre-gym',k:105,p:1},
+          {n:'Whey shake',q:'after gym',k:120,p:23},
+          {n:'Creatine',q:'5 g',k:0,p:0},
+          {n:'Home chicken',q:'250 g',k:450,p:69},
+          {n:'Dosa',q:'2',k:380,p:9,est:true},
+          {n:'Masala dosa',q:'1',k:450,p:9,est:true},
+          {n:'Mango lassi',q:'1 glass',k:300,p:8,est:true},
+          {n:'Home chicken',q:'250 g · late',k:450,p:69},
+          {n:'Chapati',q:'3 · late',k:300,p:9}],
+   coach:'Protein ~201 g, but ~2,645 kcal, about 500 over. The masala dosa + mango lassi snack is the extra. You already had 2 chicken meals, so skip that snack or swap it for buttermilk.'},
+  {date:'2026-10-15',label:'Day 11',type:['rest'],water:2,
+   work:'Rest day · movie night · wake 10:00, sleep 1:30',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Whey shake',q:'morning',k:120,p:23},
+          {n:'Creatine',q:'5 g',k:0,p:0},
+          {n:'Chapati',q:'3',k:300,p:9},
+          {n:'Eggs',q:'3',k:255,p:19},
+          {n:'Chicken 65 + paneer 65',q:'small tasting portion',k:350,p:21,est:true},
+          {n:'Chicken burger',q:'fried patty, no cheese',k:500,p:25,est:true},
+          {n:'Caramel popcorn',q:'regular, cinema',k:450,p:4,est:true},
+          {n:'Pepsi Zero',q:'200 ml',k:0,p:0}],
+   coach:'Calories OK (~2,065), but about 1,300 of them came from fried food and popcorn. A movie night is fine; the problem is that a treat is now showing up most evenings. Keep treats to 2 a week.'}
 ];
 
 (function(){
