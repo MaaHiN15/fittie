@@ -1148,6 +1148,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
           <div><span class="v mono" id="avg-p">0</span><span class="k">g protein · target 150</span></div>
           <div><span class="v mono" id="cnt-gym">0</span><span class="k">gym sessions</span></div>
           <div><span class="v mono" id="cnt-fb">0</span><span class="k">football sessions</span></div>
+          <div style="grid-column:1/-1"><span class="v mono" id="last-w">–</span><span class="k" id="last-w-k">latest weigh-in · start 85 kg</span></div>
         </div>
       </div>
       <div class="sticker" style="background:color-mix(in srgb,var(--leaf) 16%,var(--surface))">
@@ -1163,11 +1164,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
       <div class="sticker" style="background:color-mix(in srgb,var(--tomato) 13%,var(--surface))">
         <h3>Fix next</h3>
         <ul class="side-list" style="margin-top:8px">
-          <li><b>A treat most evenings.</b> Shawarma roll, mango lassi + masala dosa, chicken 65, burger, popcorn, parotta: 5 of the last 6 days had one. Keep it to 2 a week.</li>
+          <li><b>A treat most evenings.</b> Shawarma roll, mango lassi + masala dosa, chicken 65, burger, popcorn, parotta: 6 of the last 7 days had one, including 2 movie nights in a row. Keep it to 2 a week.</li>
           <li><b>Chapati + egg days stay under 110 g protein.</b> On those days, add a 2nd whey scoop at night or a chicken/paneer portion at dinner.</li>
           <li><b>Don't skip dinner or undereat on rest days.</b> Tuesday (~1,470) and Sunday (~1,525) were too low, and big treat days followed.</li>
           <li><b>Water: go to 2.5 L</b> this week. You've been at 2 L for 8 days.</li>
-          <li><b>Start weighing in:</b> 3 mornings a week after the toilet. The weight line in your template is still empty.</li>
+          <li><b>Weigh-ins started: 85.5 kg.</b> Next time weigh before tea or water. Do Mon / Wed / Fri, and expect +1–2 kg of creatine water in weeks 2–4.</li>
         </ul>
       </div>
       <div class="sticker">
@@ -1344,7 +1345,20 @@ var LOG=[
           {n:'Chicken burger',q:'fried patty, no cheese',k:500,p:25,est:true},
           {n:'Caramel popcorn',q:'regular, cinema',k:450,p:4,est:true},
           {n:'Pepsi Zero',q:'200 ml',k:0,p:0}],
-   coach:'Calories OK (~2,065), but about 1,300 of them came from fried food and popcorn. A movie night is fine; the problem is that a treat is now showing up most evenings. Keep treats to 2 a week.'}
+   coach:'Calories OK (~2,065), but about 1,300 of them came from fried food and popcorn. A movie night is fine; the problem is that a treat is now showing up most evenings. Keep treats to 2 a week.'},
+  {date:'2026-10-16',label:'Day 12',type:['gym'],water:2,weight:85.5,weightNote:'after a cup of tea',
+   work:'Gym · Upper · wake 9:30, sleep 1:30 · movie night',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Whey shake',q:'after gym',k:120,p:23},
+          {n:'Creatine',q:'5 g',k:0,p:0},
+          {n:'Chapati',q:'3',k:300,p:9},
+          {n:'Eggs',q:'3',k:255,p:19},
+          {n:'Dal khichdi',q:'restaurant plate',k:450,p:15,est:true},
+          {n:'Buttermilk',q:'1 glass',k:60,p:3},
+          {n:'Samosa',q:'1',k:260,p:5,est:true},
+          {n:'Popcorn',q:'regular, cinema',k:400,p:6,est:true},
+          {n:'Pepsi Zero',q:'regular',k:0,p:0}],
+   coach:'A chapati + egg + dal day again, so protein stayed at ~84 g. This was the night for the 2nd whey scoop. Second movie snack in 2 nights: samosa + popcorn is ~660 kcal with almost no protein.'}
 ];
 
 (function(){
@@ -1381,6 +1395,7 @@ var LOG=[
   document.getElementById('avg-k').textContent=full.length?fmt(sk/full.length):'0';
   document.getElementById('avg-p').textContent=full.length?fmt(sp/full.length):'0';
   document.getElementById('cnt-gym').textContent=LOG.filter(function(x){return x.type.indexOf('gym')>-1;}).length;
+  var wl=LOG.filter(function(x){return x.weight;});if(wl.length){var lw=wl[wl.length-1],ld=d(lw.date);document.getElementById('last-w').textContent=lw.weight+' kg';document.getElementById('last-w-k').textContent='latest weigh-in · '+MN[ld.getMonth()]+' '+ld.getDate()+' · start 85 kg';}
   document.getElementById('cnt-fb').textContent=LOG.filter(function(x){return x.type.indexOf('fb')>-1;}).length;
 
   function meter(lbl,v,t,unit,color){
@@ -1395,7 +1410,7 @@ var LOG=[
     html+='<article class="sticker dcard">'+
       '<div class="dtop"><h3>'+x.label+'</h3><span class="date">'+DN[dt.getDay()]+' · '+MN[dt.getMonth()]+' '+dt.getDate()+'</span></div>'+
       '<div class="tags">'+x.type.map(function(tp){return '<span class="tg '+tp+'">'+TAGS[tp]+'</span>';}).join('')+'</div>'+
-      '<div class="dwork">'+x.work+'</div>'+
+      '<div class="dwork">'+x.work+(x.weight?'<b>Weight: '+x.weight+' kg'+(x.weightNote?' ('+x.weightNote+')':'')+'</b>':'')+'</div>'+
       '<ul class="items">'+x.items.map(function(i){
         if(i.unk) return '<li><span class="unk">'+i.n+' <span class="q">· '+i.q+'</span></span><span class="num">?</span><span class="num">?</span></li>';
         return '<li class="'+(i.est?'est':'')+'"><span>'+i.n+' <span class="q">· '+i.q+'</span></span><span class="num">'+i.k+' kcal</span><span class="num">'+i.p+' g</span></li>';
