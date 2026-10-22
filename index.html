@@ -1154,21 +1154,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
       <div class="sticker" style="background:color-mix(in srgb,var(--leaf) 16%,var(--surface))">
         <h3>Going well</h3>
         <ul class="side-list" style="margin-top:8px">
-          <li>Week 1 finished with 5 gym sessions + football. Week 2 is Push → Pull → Legs in order, with no gaps.</li>
-          <li>Banana, whey and creatine on every gym day since Monday</li>
-          <li>Sleep is steady: 10:00 to 1:30 every day, about 8.5 hours</li>
-          <li>Chicken days hit 130–200 g protein</li>
-          <li>Water holding at 2 L, double where you started</li>
+          <li><b>No junk since Saturday.</b> 5 days of home food: salmon, chicken, fish, soya, salad, yogurt. Only an orange juice.</li>
+          <li>Salmon on Saturday and twice on Wednesday cover your omega-3, so no capsule needed</li>
+          <li>Cardio every day this week: walks Sat/Sun, cycling Mon, 12 min run + football Wed</li>
+          <li>Lower on Monday was the right next session after Friday's Upper</li>
+          <li>Banana, whey and creatine on every gym day</li>
+          <li>Weigh-ins started: 85.5 → 86.5 → 85.8. That's normal creatine-water noise.</li>
         </ul>
       </div>
       <div class="sticker" style="background:color-mix(in srgb,var(--tomato) 13%,var(--surface))">
         <h3>Fix next</h3>
         <ul class="side-list" style="margin-top:8px">
-          <li><b>A treat most evenings.</b> Shawarma roll, mango lassi + masala dosa, chicken 65, burger, popcorn, parotta: 6 of the last 7 days had one, including 2 movie nights in a row. Keep it to 2 a week.</li>
-          <li><b>Chapati + egg days stay under 110 g protein.</b> On those days, add a 2nd whey scoop at night or a chicken/paneer portion at dinner.</li>
-          <li><b>Don't skip dinner or undereat on rest days.</b> Tuesday (~1,470) and Sunday (~1,525) were too low, and big treat days followed.</li>
-          <li><b>Water: go to 2.5 L</b> this week. You've been at 2 L for 8 days.</li>
-          <li><b>Weigh-ins started: 85.5 kg.</b> Next time weigh before tea or water. Do Mon / Wed / Fri, and expect +1–2 kg of creatine water in weeks 2–4.</li>
+          <li><b>Next session is Push.</b> The order after Lower is Push → Pull → Legs → Upper. Wednesday was Pull, so do Push next, then Legs.</li>
+          <li><b>Eat more on training and football days.</b> Monday skipped dinner and ended at ~1,640 on a training day. Add curd, fruit or a 2nd scoop when a meal gets missed.</li>
+          <li><b>Rest days are too light.</b> Tuesday ~1,495. Aim for at least 1,800 so the weekend doesn't turn into a binge.</li>
+          <li><b>Water still 2 L</b> for 2 weeks. Go to 2.5 L. Football days need 3 L or more.</li>
+          <li><b>Sleep moved to 2 AM.</b> 8 hours is fine, but try to get back to 1:15–1:30.</li>
         </ul>
       </div>
       <div class="sticker">
@@ -1358,7 +1359,60 @@ var LOG=[
           {n:'Samosa',q:'1',k:260,p:5,est:true},
           {n:'Popcorn',q:'regular, cinema',k:400,p:6,est:true},
           {n:'Pepsi Zero',q:'regular',k:0,p:0}],
-   coach:'A chapati + egg + dal day again, so protein stayed at ~84 g. This was the night for the 2nd whey scoop. Second movie snack in 2 nights: samosa + popcorn is ~660 kcal with almost no protein.'}
+   coach:'A chapati + egg + dal day again, so protein stayed at ~84 g. This was the night for the 2nd whey scoop. Second movie snack in 2 nights: samosa + popcorn is ~660 kcal with almost no protein.'},
+  {date:'2026-10-17',label:'Day 13',type:['rest'],water:2,
+   work:'No workout · 10 min walk \u00b7 overnight car trip, awake from 7 AM Fri to 12 PM Sat',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Kerala veg meals',q:'full plate',k:900,p:20,est:true},
+          {n:'Salmon',q:'250 g',k:520,p:55,est:true},
+          {n:'Chapati',q:'2',k:200,p:6}],
+   coach:'A sleepless travel night, so skipping the gym was the right call. Clean food: no snacks, and salmon for dinner (great omega-3). ~1,710 kcal and ~85 g protein is fine for a no-training day.'},
+  {date:'2026-10-18',label:'Day 14',type:['rest'],water:2,
+   work:'Rest day · 4 km night walk · sleep 2:00 AM → 10:00 AM',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Kerala veg meals',q:'full plate',k:900,p:20,est:true},
+          {n:'Home chicken',q:'250 g',k:450,p:69},
+          {n:'Chapati',q:'2',k:200,p:6}],
+   coach:'No junk at all, plus a 4 km walk: the best kind of rest day. Calories fine (~1,640). The chicken at night lifted protein to ~99 g; adding eggs or curd at lunch would take it past 120 g.'},
+  {date:'2026-10-19',label:'Day 15',type:['gym'],water:2,weight:86.5,
+   work:'Gym · Lower + engine (10 min cycling) · sleep 2:00 AM → 10:00 AM',
+   items:[{n:'Low-sugar tea',q:'pre-gym',k:45,p:2},
+          {n:'Banana',q:'pre-gym',k:105,p:1},
+          {n:'Whey shake',q:'after gym',k:120,p:23},
+          {n:'Creatine',q:'5 g',k:0,p:0},
+          {n:'Home chicken',q:'250 g',k:450,p:69},
+          {n:'Chapati',q:'2',k:200,p:6},
+          {n:'Evening meal',q:'skipped',unk:true},
+          {n:'Chapati',q:'2 · late',k:200,p:6},
+          {n:'Chana masala',q:'1 portion',k:250,p:10,est:true},
+          {n:'Yogurt',q:'1 bowl (~150 g)',k:100,p:6,est:true},
+          {n:'Eggs',q:'2',k:170,p:12}],
+   coach:'Right session: after Upper comes Lower. Great protein (~135 g), but the evening meal was skipped, so a training day ended at ~1,640 kcal. Weight 86.5 is the creatine water plus the salty weekend.'},
+  {date:'2026-10-20',label:'Day 16',type:['rest'],water:2,
+   work:'Rest day · sleep 2:00 AM → 10:00 AM',
+   items:[{n:'Low-sugar tea',q:'1 cup',k:45,p:2},
+          {n:'Soya chunks',q:'50 g dry, cooked',k:270,p:26},
+          {n:'Chapati',q:'2',k:200,p:6},
+          {n:'Yogurt',q:'1 bowl (~150 g)',k:100,p:6,est:true},
+          {n:'Fish + chicken salad',q:'300 g, mushroom, onion, capsicum, corn',k:350,p:30,est:true},
+          {n:'Chapati',q:'2 · late',k:200,p:6},
+          {n:'Soya chunks',q:'50 g dry · late',k:270,p:26},
+          {n:'Coconut water',q:'1 whole coconut',k:60,p:1}],
+   coach:'Very clean, home-made day with soya and salad: ~103 g protein. Only ~1,485 kcal though, which is low again for a rest day. Add a fruit, nuts or curd.'},
+  {date:'2026-10-21',label:'Day 17',type:['gym','fb'],water:2,weight:85.8,
+   work:'Gym · Pull + 12 min run · football 60 min, intense · sleep 2:00 AM → 10:00 AM',
+   items:[{n:'Low-sugar tea',q:'pre-gym',k:45,p:2},
+          {n:'Banana',q:'pre-gym',k:105,p:1},
+          {n:'Whey shake',q:'after gym',k:120,p:23},
+          {n:'Creatine',q:'5 g',k:0,p:0},
+          {n:'Salmon curry',q:'250 g salmon',k:600,p:55,est:true},
+          {n:'Chapati',q:'2',k:200,p:6},
+          {n:'Fish + chicken salad',q:'300 g',k:350,p:30,est:true},
+          {n:'Chapati',q:'2 · late',k:200,p:6},
+          {n:'Salmon curry',q:'250 g salmon · late',k:600,p:55,est:true},
+          {n:'Orange juice',q:'1 glass',k:120,p:2,est:true},
+          {n:'L-carnitine',q:'1 capsule (~1,000 mg) · pre-football',k:0,p:0}],
+   coach:'Excellent food: ~180 g protein, and 2 salmon meals cover your omega-3 for the week. ~2,340 kcal on a gym + football day is about right; the salmon curry did the work. Note: the next session in order is Push, not Pull.'}
 ];
 
 (function(){
@@ -1395,7 +1449,7 @@ var LOG=[
   document.getElementById('avg-k').textContent=full.length?fmt(sk/full.length):'0';
   document.getElementById('avg-p').textContent=full.length?fmt(sp/full.length):'0';
   document.getElementById('cnt-gym').textContent=LOG.filter(function(x){return x.type.indexOf('gym')>-1;}).length;
-  var wl=LOG.filter(function(x){return x.weight;});if(wl.length){var lw=wl[wl.length-1],ld=d(lw.date);document.getElementById('last-w').textContent=lw.weight+' kg';document.getElementById('last-w-k').textContent='latest weigh-in · '+MN[ld.getMonth()]+' '+ld.getDate()+' · start 85 kg';}
+  var wl=LOG.filter(function(x){return x.weight;});if(wl.length){var lw=wl[wl.length-1],ld=d(lw.date);document.getElementById('last-w').textContent=lw.weight+' kg';var wk=wl.filter(function(x){return (ld-d(x.date))/864e5<7;}),av=wk.reduce(function(a,x){return a+x.weight;},0)/wk.length;document.getElementById('last-w-k').textContent='latest weigh-in · '+MN[ld.getMonth()]+' '+ld.getDate()+' · 7-day avg '+av.toFixed(1)+' kg ('+wk.length+' weigh-ins)';}
   document.getElementById('cnt-fb').textContent=LOG.filter(function(x){return x.type.indexOf('fb')>-1;}).length;
 
   function meter(lbl,v,t,unit,color){
