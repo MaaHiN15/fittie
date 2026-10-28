@@ -373,6 +373,7 @@ body.log-on .nav .wrap>a{display:none}
 .ws .n{font-weight:800;font-size:13.5px;line-height:1.2}
 .ws.gym{background:var(--tomato);color:var(--on-accent)} .ws.gym .d{color:var(--on-accent)}
 .ws.rest{background:var(--surface-2)}
+.ws.fb{background:var(--leaf);color:var(--on-accent)} .ws.fb .d{color:var(--on-accent)}
 .ws.setup{background:var(--sky);color:var(--on-accent)} .ws.setup .d{color:var(--on-accent)}
 .ws.empty{border-style:dashed;background:transparent}
 .ws.today{outline:3px solid var(--turmeric);outline-offset:2px}
@@ -1154,22 +1155,21 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
       <div class="sticker" style="background:color-mix(in srgb,var(--leaf) 16%,var(--surface))">
         <h3>Going well</h3>
         <ul class="side-list" style="margin-top:8px">
-          <li><b>No junk since Saturday.</b> 5 days of home food: salmon, chicken, fish, soya, salad, yogurt. Only an orange juice.</li>
-          <li>Salmon on Saturday and twice on Wednesday cover your omega-3, so no capsule needed</li>
-          <li>Cardio every day this week: walks Sat/Sun, cycling Mon, 12 min run + football Wed</li>
-          <li>Lower on Monday was the right next session after Friday's Upper</li>
-          <li>Banana, whey and creatine on every gym day</li>
-          <li>Weigh-ins started: 85.5 → 86.5 → 85.8. That's normal creatine-water noise.</li>
+          <li><b>2nd whey scoop is now a habit:</b> a whey milkshake at night on Mon and Tue</li>
+          <li>Only 1 treat night this week (Saturday movie), down from 5–6</li>
+          <li>Weighing in 3 times a week as planned</li>
+          <li>Football twice in 3 days (Wed and Fri)</li>
+          <li>Legs on Tuesday was the right next session in the rotation</li>
         </ul>
       </div>
       <div class="sticker" style="background:color-mix(in srgb,var(--tomato) 13%,var(--surface))">
         <h3>Fix next</h3>
         <ul class="side-list" style="margin-top:8px">
-          <li><b>Next session is Push.</b> The order after Lower is Push → Pull → Legs → Upper. Wednesday was Pull, so do Push next, then Legs.</li>
-          <li><b>Eat more on training and football days.</b> Monday skipped dinner and ended at ~1,640 on a training day. Add curd, fruit or a 2nd scoop when a meal gets missed.</li>
-          <li><b>Rest days are too light.</b> Tuesday ~1,495. Aim for at least 1,800 so the weekend doesn't turn into a binge.</li>
-          <li><b>Water still 2 L</b> for 2 weeks. Go to 2.5 L. Football days need 3 L or more.</li>
-          <li><b>Sleep moved to 2 AM.</b> 8 hours is fine, but try to get back to 1:15–1:30.</li>
+          <li><b>4 days off the gym (Fri–Mon).</b> This is how past breaks started. "Never miss twice": if Friday is football, Saturday is gym, even a 40-minute busy-week session.</li>
+          <li><b>Eating too little.</b> Most days were 1,065–1,665 kcal with protein at 58–85 g. Brunch is often small or skipped. Put chicken, fish or eggs in brunch too, not only at 11:30 PM.</li>
+          <li><b>Creatine every day,</b> rest days included. It only appears on gym days in your log.</li>
+          <li><b>Weight 86 → 87 is creatine water, not fat.</b> At ~1,600 kcal a day you can't be gaining fat. Take a waist measurement this week to confirm.</li>
+          <li><b>Next session: Upper, then Lower.</b> Water is still 2 L; aim for 2.5 L.</li>
         </ul>
       </div>
       <div class="sticker">
@@ -1412,7 +1412,65 @@ var LOG=[
           {n:'Salmon curry',q:'250 g salmon · late',k:600,p:55,est:true},
           {n:'Orange juice',q:'1 glass',k:120,p:2,est:true},
           {n:'L-carnitine',q:'1 capsule (~1,000 mg) · pre-football',k:0,p:0}],
-   coach:'Excellent food: ~180 g protein, and 2 salmon meals cover your omega-3 for the week. ~2,340 kcal on a gym + football day is about right; the salmon curry did the work. Note: the next session in order is Push, not Pull.'}
+   coach:'Excellent food: ~180 g protein, and 2 salmon meals cover your omega-3 for the week. ~2,340 kcal on a gym + football day is about right; the salmon curry did the work. Pull done; Push followed the next day.'},
+  {date:'2026-10-22',label:'Day 18',type:['gym'],water:2,weight:86,
+   work:'Gym · Push · sleep 1:30 AM → 9:30 AM',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Banana',q:'pre-gym',k:105,p:1},
+          {n:'Whey shake',q:'after gym',k:120,p:23},
+          {n:'Creatine',q:'5 g',k:0,p:0},
+          {n:'Brunch',q:'skipped',unk:true},
+          {n:'Home chicken',q:'250 g · late',k:450,p:69},
+          {n:'Chapati',q:'3 · late',k:300,p:9}],
+   coach:'Push done, which puts the rotation back on track. But the only real meal was at 11:30 PM: ~1,065 kcal is far too little for a training day. Brunch was skipped. That’s the main fix: never train and then wait until 11:30 PM to eat.'},
+  {date:'2026-10-23',label:'Day 19',type:['fb'],water:2,weight:86,
+   work:'No gym · football 60 min, intense · sleep 1:30 AM → 9:30 AM',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Chapati',q:'3',k:300,p:9},
+          {n:'Eggs',q:'3',k:255,p:19},
+          {n:'Chutney',q:'2 tbsp',k:80,p:1,est:true},
+          {n:'Yogurt',q:'1 bowl (~150 g)',k:100,p:6,est:true},
+          {n:'Chapati',q:'3 · late',k:300,p:9},
+          {n:'Chana masala',q:'1 portion · late',k:250,p:10,est:true}],
+   coach:'An hour of intense football on ~1,375 kcal and ~58 g protein, the lowest protein day so far. On football days you need about 2,300 kcal and a chicken, fish or whey portion.'},
+  {date:'2026-10-24',label:'Day 20',type:['rest'],water:2,
+   work:'No workout · movie day · sleep 1:30 AM → 9:30 AM',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Kerala non-veg meals',q:'full plate',k:1000,p:35,est:true},
+          {n:'Subway veg sub',q:'6-inch',k:300,p:12,est:true},
+          {n:'Chicken cutlet',q:'2, fried',k:360,p:20,est:true},
+          {n:'Popcorn',q:'regular, cinema',k:400,p:6,est:true},
+          {n:'Pepsi Zero',q:'500 ml',k:0,p:0}],
+   coach:'Movie night, the only treat night of the week, so that’s within the 2-a-week limit. The day still lands around ~2,150 kcal. The fried cutlets + popcorn are about 760 kcal of it.'},
+  {date:'2026-10-25',label:'Day 21',type:['rest'],water:2,
+   work:'Rest day · sleep 4:00 AM → 12:00 PM',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Kerala veg meals',q:'full plate',k:900,p:20,est:true},
+          {n:'Home chicken',q:'250 g, extra ghee',k:550,p:69,est:true},
+          {n:'Chapati',q:'3',k:300,p:9}],
+   coach:'Food OK (~1,840 kcal, ~102 g). But a 4 AM bedtime pushes the whole next day back, and this is the 3rd day in a row without the gym.'},
+  {date:'2026-10-26',label:'Day 22',type:['rest'],water:2,weight:87,
+   work:'No workout · sleep 1:30 AM → 9:30 AM',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Chapati',q:'3',k:300,p:9},
+          {n:'Chana gravy',q:'1 portion',k:250,p:10,est:true},
+          {n:'Eggs',q:'3',k:255,p:19},
+          {n:'Whey milkshake',q:'1 scoop in ~250 ml milk',k:270,p:31,est:true},
+          {n:'Chapati',q:'3 · late',k:300,p:9},
+          {n:'Aloo jeera',q:'1 portion',k:200,p:3,est:true}],
+   coach:'Good: the night whey shake is now a habit. But this is the 4th day without the gym (Fri–Mon). "Never miss twice" broke here.'},
+  {date:'2026-10-27',label:'Day 23',type:['gym'],water:2,
+   work:'Gym · Legs · sleep 1:30 AM → 9:30 AM',
+   items:[{n:'Low-sugar tea',q:'2 cups',k:90,p:4},
+          {n:'Whey milkshake',q:'1 scoop in ~250 ml milk · pre-gym',k:270,p:31,est:true},
+          {n:'Creatine',q:'5 g',k:0,p:0},
+          {n:'Mushroom gravy',q:'1 portion',k:150,p:5,est:true},
+          {n:'Paneer paratha',q:'1 big',k:450,p:15,est:true},
+          {n:'Whey milkshake',q:'1 scoop in ~250 ml milk · late',k:270,p:31,est:true},
+          {n:'Chapati',q:'3 · late',k:300,p:9},
+          {n:'Mushroom gravy',q:'1 portion · late',k:150,p:5,est:true},
+          {n:'Eggs',q:'2 · late',k:170,p:12}],
+   coach:'Back in the gym with Legs, and it’s the right session in order. Whey + creatine before the session, and a 2nd shake at night. That brings it to ~1,850 kcal and ~112 g protein: fine for leg day.'}
 ];
 
 (function(){
